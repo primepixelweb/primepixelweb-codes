@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="google-site-verification" content="XbAo7q_0jN_Dsf1mlE2AlKFTXpLIHFC_gePridBHVgk" />
+ <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=2">
+ <link rel="apple-touch-icon" href="favicon.png?v=2">
+<title>PrimePixel Web – Website Development Agency in Navi Mumbai</title>
+    <meta name="description" content="Professional website development, SEO, Google Business optimization and automation services in Navi Mumbai. Build your digital presence with PrimePixel Web.">
+    <meta name="keywords" content="Website Development Navi Mumbai, Digital Agency Mumbai, SEO Services, E-commerce Development, Web Automation">
+    <meta property="og:site_name" content="PrimePixel Web">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "PrimePixel Web",
+      "url": "https://www.primepixelweb.in",
+      "logo": "https://www.primepixelweb.in/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9324802717",
+        "contactType": "customer service",
+        "areaServed": "IN",
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Navi Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "India"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "name": "PrimePixel Web",
+      "url": "https://www.primepixelweb.in/"
+    }
+  ]
+}
+</script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= CSS VARIABLES ================= */
+        :root {
+            --bg-black: #050505; /* Softer true black */
+            --bg-darker: #0a0a0a;
+            --bg-card: rgba(15, 20, 25, 0.4); /* Modern transparency */
+            --electric-blue: #3bc1ff;
+            --deep-blue: #1573c0;
+            --gold: #f1c40f;
+            --silver-light: #ffffff;
+            --silver-dark: #a3a3a3;
+            --text-main: #f2f2f2;
+            --text-muted: #9baac2; /* Better contrast ratio */
+            
+            /* Premium Soft Diffuse Glows instead of Neon */
+            --glow-blue: 0 8px 30px rgba(59, 193, 255, 0.12);
+            --glow-blue-strong: 0 12px 40px rgba(59, 193, 255, 0.25);
+            --glow-gold: 0 8px 30px rgba(241, 196, 15, 0.15);
+            
+            --glass-border: 1px solid rgba(255, 255, 255, 0.08); /* Crisper glass edge */
+            --neon-border: 1px solid rgba(59, 193, 255, 0.2);
+            
+            /* Modern OKLCH Gradients for buttery smooth color mixing */
+            --gradient-blue: linear-gradient(135deg, oklch(0.78 0.13 240) 0%, oklch(0.55 0.14 255) 100%);
+            --gradient-silver: linear-gradient(135deg, oklch(0.98 0 0) 0%, oklch(0.75 0 0) 100%);
+        }
+
+        /* --- Global Scroll Animation Classes --- */
+        .fade-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+/* ================= PORTFOLIO SECTION ================= */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 20px;
+}
+
+.portfolio-card {
+    background: var(--bg-card);
+    border: var(--glass-border);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-12px);
+    border-color: rgba(59, 193, 255, 0.3);
+    box-shadow: var(--glow-blue-strong);
+}
+
+.portfolio-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-bottom: var(--glass-border);
+}
+
+.portfolio-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio-card:hover .portfolio-img-wrapper img {
+    transform: scale(1.08);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(3px);
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-btn {
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    font-size: 0.85rem;
+    padding: 12px 26px;
+    text-shadow: none;
+}
+
+.portfolio-card:hover .portfolio-btn {
+    transform: translateY(0);
+}
+
+.portfolio-content {
+    padding: 30px 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.portfolio-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--electric-blue);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.portfolio-content h3 {
+    font-size: 1.35rem;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.portfolio-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.portfolio-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: var(--glass-border);
+    padding-top: 15px;
+}
+
+.portfolio-features li {
+    margin-bottom: 6px;
+}
+
+.portfolio-features strong {
+    color: var(--electric-blue);
+    font-weight: 600;
+}
+
+.portfolio-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ================= NEW SECTIONS CSS (Comparison & Tech Stack & Mobile Bar) ================= */
+.comparison-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.compare-card {
+    padding: 40px;
+    border-radius: 12px;
+    border: var(--glass-border);
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+}
+
+.compare-card.prime {
+    border-color: var(--electric-blue);
+    box-shadow: var(--glow-blue);
+    position: relative;
+}
+
+.compare-card.prime::before {
+    content: 'Recommended';
+    position: absolute;
+    top: -12px;
+    right: 30px;
+    background: var(--gradient-blue);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.compare-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.compare-card ul {
+    list-style: none;
+}
+
+.compare-card ul li {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.compare-card ul li i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.compare-card.others ul li i { color: #ff4d4d; }
+.compare-card.prime ul li i { color: var(--electric-blue); text-shadow: var(--glow-blue); }
+.compare-card.prime ul li { color: #fff; font-weight: 500; }
+
+.tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.tech-badge {
+    background: rgba(59, 193, 255, 0.05);
+    border: 1px solid rgba(59, 193, 255, 0.2);
+    padding: 12px 25px;
+    border-radius: 50px;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(59, 193, 255, 0.05);
+}
+
+.tech-badge:hover {
+    border-color: var(--electric-blue);
+    box-shadow: var(--glow-blue);
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+/* Mobile Bottom Bar */
+.mobile-bottom-bar {
+    display: none;
+}
+
+
+/* ================= LEGAL MODAL STYLES ================= */
+.legal-modal .modal-content {
+    max-width: 800px;
+    width: 95%;
+    max-height: 80vh;
+    overflow-y: auto;
+    text-align: left;
+    padding: 40px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--electric-blue) transparent;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.legal-modal .modal-content::-webkit-scrollbar { width: 6px; }
+.legal-modal .modal-content::-webkit-scrollbar-thumb { background: var(--electric-blue); border-radius: 10px; }
+
+.legal-modal h2 { 
+    color: var(--electric-blue); 
+    margin-bottom: 20px; 
+    border-bottom: 1px solid rgba(59, 193, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.legal-modal h4 { 
+    color: #fff; 
+    margin: 20px 0 10px 0; 
+    font-size: 1.1rem;
+}
+
+.legal-modal p, .legal-modal li { 
+    color: var(--text-muted); 
+    font-size: 0.95rem; 
+    line-height: 1.7; 
+    margin-bottom: 10px;
+}
+
+.legal-modal ul { margin-left: 20px; margin-bottom: 20px; }
+
+.close-legal {
+    position: sticky;
+    top: 0;
+    float: right;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.close-legal:hover { color: var(--electric-blue); }
+
+        /* ================= GLOBAL RESETS & TYPOGRAPHY ================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4, h5, .logo-text { font-family: 'Montserrat', sans-serif; }
+        
+        /* Typography Hierarchy */
+        h2.section-title {
+            text-align: center; font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;
+            background: var(--gradient-silver); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        h3.section-subtitle {
+            text-align: center; color: var(--electric-blue); margin-bottom: 50px;
+            font-size: 1rem; text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        /* ================= PRELOADER ================= */
+        #preloader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg-black); z-index: 9999; display: flex;
+            flex-direction: column; align-items: center; justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+         .preloader-img {
+    width: 260px;          /* Bigger for desktop */
+    max-width: 85%;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite ease-in-out;
+
+    filter: brightness(1.5) contrast(1.1);
+}
+@media (min-width: 992px) {
+    .preloader-img {
+        width: 1000px !important;
+        max-width: 1000px;
+    }
+}
+        .loader-logo { font-size: 2rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 20px; animation: pulse 1.5s infinite alternate; }
+        .loader-logo span.silver { color: #fff; }
+        .loader-logo span.blue { color: var(--electric-blue); text-shadow: var(--glow-blue); }
+        .progress-bar { width: 150px; height: 2px; background: rgba(255,255,255,0.1); overflow: hidden; position: relative; }
+        .progress-bar::after {
+            content: ''; position: absolute; top: 0; left: 0; height: 100%; width: 50%;
+            background: var(--electric-blue); animation: load 1s infinite ease-in-out;
+        }
+        @keyframes load { 0% { left: -50%; } 100% { left: 100%; } }
+        @keyframes pulse { from { opacity: 0.6; text-shadow: 0 0 10px rgba(59,193,255,0.1); } to { opacity: 1; text-shadow: var(--glow-blue-strong); } }
+
+        /* ================= BACKGROUND EFFECTS ================= */
+        .bg-particles {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 30%, rgba(21, 115, 192, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(59, 193, 255, 0.05) 0%, transparent 40%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* ================= BUTTONS & LINKS ================= */
+        .btn {
+            padding: 14px 32px; border-radius: 4px; font-size: 0.9rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px; cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; display: inline-block; border: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .btn-primary { background: var(--gradient-blue); color: #fff; box-shadow: var(--glow-blue); }
+        .btn-primary:hover { box-shadow: 0 0 35px rgba(59, 193, 255, 0.9); transform: translateY(-3px) scale(1.02); animation: none; }
+        .btn-outline { background: transparent; color: var(--electric-blue); border: 1px solid var(--electric-blue); }
+        .btn-outline:hover { background: rgba(59, 193, 255, 0.1); box-shadow: var(--glow-blue-strong); transform: translateY(-3px) scale(1.02); }
+
+        /* Premium Soft Pulse for Hero Primary Button */
+        @keyframes premiumPulse {
+            0% { box-shadow: 0 0 15px rgba(59, 193, 255, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(59, 193, 255, 0.6); }
+            100% { box-shadow: 0 0 15px rgba(59, 193, 255, 0.3); }
+        }
+        .pulse-btn { animation: premiumPulse 2.5s infinite; }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(0, 0, 0, 0.2); backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); z-index: 1000; transition: all 0.4s ease;
+        }
+        nav.scrolled { padding: 15px 5%; background: rgba(0, 0, 0, 0.85); border-bottom: var(--neon-border); }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; cursor: pointer; }
+        .logo span.silver { background: var(--gradient-silver); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo span.blue { background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a {
+            color: var(--text-main); text-decoration: none; font-size: 0.85rem;
+            font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+            transition: 0.3s; position: relative; cursor: pointer;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--electric-blue); transition: 0.3s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover, .nav-links a.active { color: var(--electric-blue); text-shadow: var(--glow-blue); }
+        .mobile-menu-btn { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+
+        /* ================= HERO SECTION (SEO Optimized) ================= */
+        .hero {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 5%; position: relative; overflow: hidden;
+            background: radial-gradient(circle at center, rgba(10,14,20,0) 0%, var(--bg-black) 100%);
+        }
+        .hero-content { max-width: 900px; z-index: 2; animation: fadeInUp 1s ease forwards; opacity: 0; transform: translateY(30px); }
+        .hero h1 { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { background: var(--gradient-blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p.subtitle { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 15px; font-weight: 400; }
+        .hero p.trust-line { font-size: 0.9rem; color: var(--electric-blue); margin-bottom: 40px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+        
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+        /* ================= TRUST BADGE STRIP ================= */
+        .trust-strip {
+            background: rgba(255,255,255,0.02); border-top: var(--glass-border); border-bottom: var(--glass-border);
+            padding: 20px 0; display: flex; justify-content: center; gap: 50px; flex-wrap: wrap; align-items: center;
+        }
+        .trust-strip span {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 2px; display: flex; align-items: center; gap: 10px; opacity: 0.7; transition: 0.3s;
+        }
+        .trust-strip span:hover { opacity: 1; color: var(--electric-blue); }
+
+        /* ================= SECTIONS GLOBAL ================= */
+        section { padding: 100px 5%; max-width: 1300px; margin: 0 auto; position: relative; }
+        .section-divider {
+            position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 80%; height: 1px; background: radial-gradient(circle, rgba(59,193,255,0.3) 0%, transparent 80%);
+        }
+
+        /* ================= GRID LAYOUTS ================= */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        /* ================= CARDS & SERVICES ================= */
+        .card {
+            background: var(--bg-card); border: var(--glass-border); padding: 40px 30px;
+            border-radius: 12px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden; backdrop-filter: blur(10px);
+        }
+        .card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
+            background: var(--gradient-blue); transform: scaleX(0); transition: 0.4s ease; transform-origin: left;
+        }
+        .card:hover { transform: translateY(-10px); border-color: rgba(59, 193, 255, 0.2); box-shadow: var(--glow-blue); }
+        .card:hover::before { transform: scaleX(1); }
+        .card i { font-size: 2.5rem; color: var(--electric-blue); margin-bottom: 20px; text-shadow: var(--glow-blue); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--text-main); }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ================= PROCESS TIMELINE ================= */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 40px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; width: 2px; height: 100%; background: rgba(59, 193, 255, 0.2);
+        }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -46px; top: 0; width: 14px; height: 14px;
+            border-radius: 50%; background: var(--bg-black); border: 2px solid var(--electric-blue);
+            box-shadow: var(--glow-blue); transition: 0.3s;
+        }
+        .timeline-item:hover::before { background: var(--electric-blue); box-shadow: var(--glow-blue-strong); }
+        .timeline-item h3 { color: var(--electric-blue); font-size: 1.2rem; margin-bottom: 10px; }
+        .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ================= PRICING & MAINTENANCE PACKAGES ================= */
+        .pricing-card { display: flex; flex-direction: column; text-align: center; }
+        .pricing-card .badge{
+            position:absolute;
+            top:30px;
+            right:-75px;
+            background:linear-gradient(135deg,#2fb7ff,#007bff);
+            color:#fff;
+            font-size:0.7rem;
+            font-weight:700;
+            padding:8px 80px;
+            transform:rotate(45deg);
+            letter-spacing:1px;
+            z-index:10;
+        }
+        .pricing-card.elite { 
+            border-color: var(--gold); 
+            box-shadow: 0 0 30px rgba(241, 196, 15, 0.15); 
+            background: linear-gradient(180deg, rgba(241, 196, 15, 0.05) 0%, rgba(5, 5, 5, 1) 100%);
+            transform: scale(1.05);
+            z-index: 20;
+        }
+        .pricing-card.elite::before { background: var(--gold); height: 5px; }
+        .pricing-card.elite i { color: var(--gold); text-shadow: var(--glow-gold); }
+        .pricing-card.elite .price-val { color: var(--gold); text-shadow: var(--glow-gold); }
+        .pricing-card.elite:hover { transform: translateY(-15px) scale(1.06); box-shadow: 0 0 50px rgba(241, 196, 15, 0.3); }
+
+        /* Elite Enterprise UI Additions */
+        .elite-options-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .elite-opt {
+            background: rgba(241, 196, 15, 0.05);
+            border: 1px solid rgba(241, 196, 15, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .elite-opt:hover {
+            background: rgba(241, 196, 15, 0.1);
+            border-color: var(--gold);
+        }
+        .elite-opt h4 {
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .elite-opt .opt-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .elite-opt .opt-desc {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+        }
+        .feature-group-title {
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 15px 0 8px 0;
+            border-bottom: 1px solid rgba(241, 196, 15, 0.1);
+            padding-bottom: 4px;
+            text-align: left;
+        }
+        .pricing-card.elite ul li { margin-bottom: 8px; font-size: 0.85rem; }
+        
+       /* Updated Professional Pricing Styles */
+        .price { 
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin: 30px 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* The Currency Symbol */
+        .price::before {
+            content: "₹";
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--electric-blue);
+            margin-right: 4px;
+        }
+        .pricing-card.elite .price::before {
+            color: var(--gold);
+        }
+
+        /* The Big Number */
+        .price-val { 
+            font-size: 4rem; /* Significantly larger */
+            font-weight: 800; 
+            color: #ffffff; /* High contrast White */
+            line-height: 1;
+            text-shadow: 0 0 15px rgba(59, 193, 255, 0.2);
+        }
+        
+        /* Gold color for Elite Number */
+        .pricing-card.elite .price-val {
+            color: var(--gold);
+            text-shadow: var(--glow-gold);
+        }
+
+        /* The /mo or /yr part */
+        .price-period { 
+            font-size: 1.2rem; 
+            color: var(--text-muted); 
+            font-weight: 500;
+            margin-left: 5px;
+        }
+        
+        .pricing-card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; text-align: left; }
+        .pricing-card ul li { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .pricing-card ul li i { font-size: 1rem; color: var(--electric-blue); margin-right: 12px; margin-top: 3px; text-shadow: none; }
+        .pricing-card.elite ul li i { color: var(--gold); }
+
+        /* Availability Trust Badge */
+        .availability-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(59,193,255,0.05); border: 1px solid rgba(59,193,255,0.2);
+            padding: 8px 22px; border-radius: 50px; font-size: 0.85rem;
+            color: #fff; font-weight: 500; letter-spacing: 1px;
+            text-transform: uppercase; box-shadow: 0 0 15px rgba(59,193,255,0.1);
+        }
+        .pulse-dot {
+            width: 8px; height: 8px; background: #25D366; 
+            border-radius: 50%; box-shadow: 0 0 10px #25D366;
+            animation: blink 1.5s infinite ease-in-out;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* Pricing Toggle */
+        .toggle-wrapper { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 10px; }
+        .toggle-label { font-size: 1rem; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: 0.3s; }
+        .toggle-label.active { color: #fff; text-shadow: var(--glow-blue); }
+        
+        .switch { position: relative; display: inline-block; width: 60px; height: 30px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--bg-card); border: 1px solid rgba(255,255,255,0.2); transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 22px; width: 22px; left: 4px; bottom: 3px; background-color: var(--electric-blue); transition: .4s; border-radius: 50%; box-shadow: var(--glow-blue); }
+        input:checked + .slider { border-color: var(--electric-blue); }
+        input:checked + .slider:before { transform: translateX(28px); }
+
+        /* ================= FAQ ACCORDION ================= */
+        .faq-container { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: var(--glass-border); padding: 20px 0; cursor: pointer; transition: 0.3s; }
+        .faq-item:hover { border-bottom-color: var(--electric-blue); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; font-weight: 600; color: var(--text-main); }
+        .faq-question i { color: var(--electric-blue); transition: transform 0.3s ease; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; color: var(--text-muted); font-size: 0.95rem; margin-top: 0; }
+        .faq-item.active .faq-answer { max-height: 400px; margin-top: 15px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* ================= SMART ONBOARDING FORM ================= */
+        .form-container { max-width: 700px; margin: 0 auto; background: var(--bg-card); padding: 50px; border-radius: 12px; border: var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
+        .form-step { display: none; animation: fadeIn 0.4s ease; }
+        .form-step.active { display: block; }
+        .step-indicators { display: flex; justify-content: space-between; margin-bottom: 30px; position: relative; }
+        .step-indicators::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.1); z-index: 1; }
+        .step-dot { width: 30px; height: 30px; border-radius: 50%; background: var(--bg-black); border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; z-index: 2; color: var(--text-muted); transition: 0.3s; }
+        .step-dot.active { border-color: var(--electric-blue); color: var(--electric-blue); box-shadow: var(--glow-blue); }
+        .step-dot.completed { background: var(--electric-blue); color: #fff; border-color: var(--electric-blue); }
+        
+        .pkg-select-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
+        .pkg-option { padding: 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; align-items: center; }
+        .pkg-option:hover { border-color: rgba(59,193,255,0.5); background: rgba(59,193,255,0.05); }
+        .pkg-option.selected { border-color: var(--electric-blue); background: rgba(59,193,255,0.1); box-shadow: var(--glow-blue); }
+        .pkg-option h4 { font-size: 1.1rem; color: #fff; }
+        .pkg-option span { color: var(--electric-blue); font-weight: bold; }
+
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+            color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--electric-blue); box-shadow: 0 0 10px rgba(59,193,255,0.2); background: rgba(0,0,0,0.8);
+        }
+        .form-actions { display: flex; justify-content: space-between; margin-top: 30px; }
+
+        /* ================= FOOTER & CONTACT ================= */
+        .contact-info p { font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; color: var(--text-muted); }
+        .contact-info i { color: var(--electric-blue); font-size: 1.2rem; }
+        
+        footer { background: var(--bg-darker); padding: 60px 5% 30px; border-top: var(--glass-border); text-align: center; }
+        .footer-brand { margin-bottom: 30px; }
+        .footer-trust { font-size: 1.2rem; color: var(--text-main); font-weight: 600; margin-bottom: 10px; }
+        .footer-seo { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 40px; }
+        /* New Footer & Mobile Menu Socials */
+        .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; }
+        .footer-socials a { width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--text-main); transition: 0.3s; border: var(--glass-border); text-decoration: none; }
+        .footer-socials a.wa:hover { background: #25D366; color: #fff; border-color: #25D366; box-shadow: 0 0 15px rgba(37, 211, 102, 0.5); transform: translateY(-3px); }
+        .footer-socials a.ig:hover { background: #E1306C; color: #fff; border-color: #E1306C; box-shadow: 0 0 15px rgba(225, 48, 108, 0.5); transform: translateY(-3px); }
+        .footer-socials a.li:hover { background: #0077b5; color: #fff; border-color: #0077b5; box-shadow: 0 0 15px rgba(0, 119, 181, 0.5); transform: translateY(-3px); }
+
+        .mobile-menu-socials { display: none; margin-top: 40px; justify-content: center; gap: 25px; }
+        .mobile-menu-socials a { color: #fff; font-size: 1.8rem; transition: 0.3s; text-decoration: none; }
+        .mobile-menu-socials a.wa { color: #25D366; }
+        .mobile-menu-socials a.ig { color: #E1306C; }
+        .mobile-menu-socials a.li { color: #0077b5; }
+        
+        .footer-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--electric-blue); }
+        .copyright { color: #555; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+
+        /* ================= FLOATING WIDGETS ================= */
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: #25D366; color: #fff; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 2rem; z-index: 100;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4); transition: 0.3s; text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.6); }
+        .float-ig{
+            position:fixed;
+            bottom:100px;
+            right:30px;
+            width:60px;
+            height:60px;
+            background:#E1306C;
+            color:#fff;
+            border-radius:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:2rem;
+            z-index:100;
+            box-shadow:0 0 20px rgba(225,48,108,0.5);
+            transition:0.3s;
+            text-decoration:none;
+        }
+
+        .float-ig:hover{
+            transform:scale(1.1);
+            box-shadow:0 0 30px rgba(225,48,108,0.7);
+        }
+        .float-li {
+            position: fixed; bottom: 170px; right: 30px; width: 60px; height: 60px;
+            background: #0077b5; color: #fff; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 2rem; z-index: 100;
+            box-shadow: 0 0 20px rgba(0, 119, 181, 0.5); transition: 0.3s; text-decoration: none;
+        }
+        .float-li:hover { transform: scale(1.1); box-shadow: 0 0 30px rgba(0, 119, 181, 0.7); }
+        .back-to-top {
+            position: fixed; bottom: 30px; left: 30px; width: 45px; height: 45px;
+            background: var(--bg-card); color: var(--electric-blue); border: var(--neon-border);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; z-index: 100; cursor: pointer; opacity: 0; pointer-events: none; transition: 0.3s;
+        }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { background: var(--electric-blue); color: #fff; box-shadow: var(--glow-blue); }
+
+        /* ================= MODAL ================= */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
+        .modal-content { background: var(--bg-card); padding: 50px; border-radius: 12px; border: var(--neon-border); text-align: center; box-shadow: var(--glow-blue-strong); max-width: 500px; width: 90%; }
+        .modal-content i { font-size: 4rem; color: var(--electric-blue); margin-bottom: 20px; }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3rem; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .comparison-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 70px; right: -100%; flex-direction: column; background: rgba(0,0,0,0.95);
+                width: 100%; height: 100vh; text-align: center; padding: 40px 0; transition: 0.4s ease; backdrop-filter: blur(20px);
+            }
+            .nav-links.active { right: 0; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding-top: 120px; padding-bottom: 60px; height: auto; min-height: 100vh; }
+            .hero-content { margin-top: 20px; }
+            .hero h1 { font-size: 2.2rem; line-height: 1.3; }
+            .hero-btns { flex-direction: column; }
+            section {padding: 70px 20px;}
+            .timeline::before { left: 15px; }
+
+            .timeline {
+                padding-left: 70px;
+            }
+
+            .timeline-item::before {
+                left: -30px;
+                width: 12px;
+                height: 12px;
+            }
+            /* Ribbon mobile fix */
+            .pricing-card .badge{
+                top:20px;
+                right:-70px;
+                font-size:0.55rem;
+                padding:6px 60px;
+                letter-spacing:0.5px;
+            }
+            .form-container { padding: 30px 20px; }
+
+            /* Mobile Bottom Bar Activation & Adjustments */
+            .mobile-bottom-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 14, 20, 0.95);
+                backdrop-filter: blur(10px);
+                border-top: var(--glass-border);
+                z-index: 1000;
+                padding: 12px 10px;
+                justify-content: space-around;
+            }
+            .mobile-bottom-bar a {
+                color: var(--text-main);
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: 0.75rem;
+                font-weight: 500;
+                transition: 0.3s;
+            }
+            .mobile-bottom-bar a i {
+                font-size: 1.3rem;
+                margin-bottom: 4px;
+                color: var(--electric-blue);
+            }
+            /* Hide ONLY Instagram and LinkedIn floating buttons on mobile */
+            .float-ig, .float-li { display: none !important; }
+            
+            /* Keep Back-to-Top AND WhatsApp, shifting them up so they don't hide behind mobile bar */
+            .back-to-top, .float-wa { bottom: 90px; display: flex !important; }
+            
+            .mobile-menu-socials { display: flex; } /* Show inside mobile menu */
+            
+            body { padding-bottom: 60px; } /* Prevent footer from hiding behind bar */
+        }
+        
+        /* ================= FULL WEBSITE CENTER FIX ================= */
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        section,
+        .container,
+        .hero,
+        header,
+        nav,
+        footer {
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <!-- Background Effects -->
+    <div class="bg-particles"></div>
+
+    <!-- Sticky Navigation -->
+    <nav id="navbar">
+       <div class="logo" onclick="scrollToSection('home')" style="display:flex; align-items:center; gap:10px;">
+    <img src="logo.png" alt="PrimePixel Logo" style="height:40px; width:auto;">
+    <div>
+        <span class="silver">Prime</span><span class="blue">Pixel</span> Web
+    </div>
+</div>
+
+        <div class="nav-links" id="navLinks">
+            <a onclick="scrollToSection('home')" class="nav-item">Home</a>
+            <a onclick="scrollToSection('about')" class="nav-item">About</a>
+            <a onclick="scrollToSection('services')" class="nav-item">Services</a>
+            <a onclick="scrollToSection('packages')" class="nav-item">Packages</a>
+            <a onclick="scrollToSection('process')" class="nav-item">Process</a>
+            <a onclick="scrollToSection('faq')" class="nav-item">FAQ</a>
+            <a onclick="scrollToSection('onboarding')" class="nav-item" style="color:var(--electric-blue);">Start Project</a>
+            
+            <!-- Mobile Menu Social Links -->
+            <div class="mobile-menu-socials">
+                <a href="https://wa.me/919324802717" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/primepixelweb2026" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/vighensh-kalantre-39a7843b5" target="_blank" class="li"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Floating Actions (A11y Optimized) -->
+    <a href="https://wa.me/919324802717" target="_blank" class="float-wa" aria-label="Chat with us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://instagram.com/primepixelweb2026" target="_blank" class="float-ig" aria-label="Visit our Instagram profile">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/vighensh-kalantre-39a7843b5" target="_blank" class="float-li" aria-label="Connect with us on LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <button class="back-to-top" id="backToTop" onclick="scrollToSection('home')" aria-label="Scroll back to top" style="border:none;"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Mobile Bottom Bar -->
+    <div class="mobile-bottom-bar">
+        <a href="tel:+919324802717"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="https://wa.me/919324802717" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a onclick="scrollToSection('onboarding')"><i class="fas fa-rocket"></i> Start Project</a>
+    </div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- STRICT SEO Requirement: Only ONE H1 -->
+            <h1>Website Development <br>& Digital Agency in <span>Navi Mumbai</span></h1>
+            <p class="subtitle">
+                We help businesses in Navi Mumbai and Mumbai build powerful websites, automation systems, and scalable digital growth solutions.
+                <span style="display:block; margin-top:10px; color:var(--text-main); font-weight:500;">Serving businesses across India with premium digital solutions.</span>
+            </p>
+            <p class="trust-line">Helping local and growing businesses build a powerful digital presence.</p>
+            
+            <div class="hero-btns">
+                <a onclick="scrollToSection('onboarding')" class="btn btn-primary pulse-btn">Get Free Consultation</a>
+                <a onclick="scrollToSection('packages')" class="btn btn-outline">View Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Tools Strip -->
+    <div class="trust-strip">
+        <span><i class="fab fa-google"></i> Google Profiles</span>
+        <span><i class="fas fa-credit-card"></i> Razorpay Ready</span>
+        <span><i class="fab fa-whatsapp"></i> WhatsApp Automation</span>
+        <span><i class="fas fa-server"></i> Scalable Systems</span>
+    </div>
+
+    <!-- 1.5 NEW LUXURY STRATEGY POSITIONING -->
+    <section id="strategy" style="padding-top: 80px; padding-bottom: 60px;">
+        <h2 class="section-title">More Than Just Websites</h2>
+        <h3 class="section-subtitle" style="margin-bottom: 40px; color:var(--text-muted); font-size:1.1rem; line-height:1.6; text-transform:none; letter-spacing:0.5px; max-width:800px; margin-left:auto; margin-right:auto;">
+            At PrimePixel Web, we don’t just create websites — we build digital systems that help businesses attract customers, build trust, and grow online.
+        </h3>
+        
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:40px;">
+            <div style="background:var(--bg-card); padding:15px 25px; border-radius:50px; border:var(--glass-border); display:flex; align-items:center; gap:12px; box-shadow:var(--glow-blue); transition:all 0.4s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(59,193,255,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.05)';">
+                <i class="fas fa-check-circle" style="color:var(--electric-blue); font-size:1.2rem; text-shadow:var(--glow-blue);"></i>
+                <span style="font-weight:500; color:var(--text-main); font-size:0.95rem;">Strategy before design</span>
+            </div>
+            <div style="background:var(--bg-card); padding:15px 25px; border-radius:50px; border:var(--glass-border); display:flex; align-items:center; gap:12px; box-shadow:var(--glow-blue); transition:all 0.4s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(59,193,255,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.05)';">
+                <i class="fas fa-check-circle" style="color:var(--electric-blue); font-size:1.2rem; text-shadow:var(--glow-blue);"></i>
+                <span style="font-weight:500; color:var(--text-main); font-size:0.95rem;">Business-focused development</span>
+            </div>
+            <div style="background:var(--bg-card); padding:15px 25px; border-radius:50px; border:var(--glass-border); display:flex; align-items:center; gap:12px; box-shadow:var(--glow-blue); transition:all 0.4s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.borderColor='rgba(59,193,255,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.05)';">
+                <i class="fas fa-check-circle" style="color:var(--electric-blue); font-size:1.2rem; text-shadow:var(--glow-blue);"></i>
+                <span style="font-weight:500; color:var(--text-main); font-size:0.95rem;">Built for long-term growth</span>
+            </div>
+        </div>
+
+        <p style="text-align:center; color:var(--electric-blue); font-size:1rem; font-style:italic; font-weight:400; opacity:0.8;">
+            Every project starts with understanding your business — not just design.
+        </p>
+    </section>
+
+    <!-- 2. WHY CHOOSE US -->
+    <section id="about">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Why Choose PrimePixel Web</h2>
+        <h3 class="section-subtitle">Premium Standards for Growing Brands</h3>
+        
+        <div class="grid-3">
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Premium Designs That Convert</h3>
+                <p>High-end, minimalistic interfaces engineered for visual impact and high conversion rates.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Scalable Systems</h3>
+                <p>Robust backend architectures designed to grow seamlessly alongside your business traffic.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile-Responsive</h3>
+                <p>Flawless, mobile-first experiences ensuring perfect rendering on every device size.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-handshake"></i>
+                <h3>Professional Approach</h3>
+                <p>Transparent workflows, clear communication, and an agency-level onboarding experience.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-headset"></i>
+                <h3>Dedicated Support</h3>
+                <p>We stand by our code. Benefit from priority maintenance and ongoing technical guidance.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+                <i class="fas fa-rocket"></i>
+                <h3>Fast & On-Time Delivery</h3>
+                <p>Strict adherence to deadlines without compromising our premium quality standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION (NEW) -->
+    <section id="comparison">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Why Businesses Choose Us</h2>
+        <h3 class="section-subtitle">The PrimePixel Advantage</h3>
+        
+        <div class="comparison-container">
+            <div class="compare-card others">
+                <h3 style="color: var(--text-muted);">Traditional Agencies / Others</h3>
+                <ul>
+                    <li><i class="fas fa-times-circle"></i> Just a basic website</li>
+                    <li><i class="fas fa-times-circle"></i> Generic templates used for everyone</li>
+                    <li><i class="fas fa-times-circle"></i> Limited or slow post-launch support</li>
+                    <li><i class="fas fa-times-circle"></i> Slow communication and delays</li>
+                </ul>
+            </div>
+            <div class="compare-card prime">
+                <h3 style="color: #fff;"><span style="color: var(--electric-blue);">PrimePixel</span> Web</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Complete digital system + business strategy</li>
+                    <li><i class="fas fa-check-circle"></i> Custom, high-end, conversion-focused designs</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated priority maintenance & support</li>
+                    <li><i class="fas fa-check-circle"></i> Fast, clear WhatsApp communication</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES (SEO Content) -->
+    <section id="services">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Digital Solutions</h2>
+        <h3 class="section-subtitle">Comprehensive Systems for Modern Business</h3>
+        
+        <div class="grid-3">
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <h3>Professional Website Development in Navi Mumbai</h3>
+                <p>Custom-coded, high-performance websites built to dominate local SEO in Navi Mumbai and Mumbai. We engineer speed and aesthetics.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-commerce & Digital Commerce Solutions</h3>
+                <p>Secure, conversion-optimized online stores complete with Razorpay integration and automated inventory management.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-google"></i>
+                <h3>Google Business Profile Optimization</h3>
+                <p>Dominate local maps. We structure, verify, and fully optimize your profile to attract local search traffic efficiently.</p>
+            </div>
+            <div class="card">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp Business Automation Setup</h3>
+                <p>Automate client inquiries, structure professional catalogs, and build auto-reply systems that sell while you sleep.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h3>Review Growth & Reputation Systems</h3>
+                <p>Automated pipelines using QR codes and WhatsApp triggers to consistently collect 5-star Google reviews from clients.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-search"></i>
+                <h3>SEO & Search Engine Optimization Services</h3>
+                <p>Technical, On-Page, and Content SEO designed to rank your business higher across Maharashtra's competitive markets.</p>
+            </div>
+        </div>
+
+        <!-- TECH STACK (NEW) -->
+        <div class="tech-stack-container">
+            <div class="tech-badge"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5</div>
+            <div class="tech-badge"><i class="fab fa-css3-alt" style="color: #1572B6;"></i> CSS3</div>
+            <div class="tech-badge"><i class="fab fa-js-square" style="color: #F7DF1E;"></i> JavaScript</div>
+            <div class="tech-badge"><i class="fas fa-search" style="color: #4285F4;"></i> Advanced SEO</div>
+            <div class="tech-badge"><i class="fas fa-robot" style="color: var(--electric-blue);"></i> Web Automation</div>
+            <div class="tech-badge"><i class="fas fa-credit-card" style="color: #02042B;"></i> Razorpay</div>
+            <div class="tech-badge"><i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp APIs</div>
+        </div>
+    </section>
+
+    <!-- 4. OUR PROCESS -->
+    <section id="process">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Proven Process</h2>
+        <h3 class="section-subtitle">How We Build Digital Excellence</h3>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>1. Understand Your Business Goals</h3>
+                <p>We begin with a strategic consultation to analyze your brand, target audience, and core objectives.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2. Strategic Planning & Structure</h3>
+                <p>Mapping out the exact user journey, wireframes, technical stack, and SEO structure required to guarantee results.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>3. Design & Website Development</h3>
+                <p>Crafting the premium user interface and coding the scalable backend systems with pixel-perfect precision.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>4. Launch, SEO & Growth Support</h3>
+                <p>Deploying the website live, running final security checks, submitting to search engines, and handing over the keys.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Work</h2>
+        <h3 class="section-subtitle">Premium digital experiences built for growth</h3>
+        
+        <div class="portfolio-grid">
+            <!-- Project 1: PrimeCatch (UPDATED) -->
+            <div class="portfolio-card">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=600&fm=webp&q=75" alt="PrimeCatch Seafood" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <a href="https://www.myprimecatch.in" target="_blank" class="btn btn-primary portfolio-btn" style="background: linear-gradient(135deg, #005c97 0%, #363795 100%); box-shadow: 0 0 20px rgba(0, 92, 151, 0.4); color: #fff;">View Live Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">E-commerce / Food Tech</span>
+                    <h3>PrimeCatch</h3>
+                    <p>A premium seafood e-commerce platform in Navi Mumbai delivering fresh, chemical-free catch directly to homes.</p>
+                    <ul class="portfolio-features">
+                        <li><strong>Industry:</strong> Food & Retail Tech</li>
+                        <li><strong>Goal:</strong> D2C Sales & Ordering</li>
+                        <li><strong>Features:</strong> Product Catalog, Secure Payments, WhatsApp Sync</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 2: Gym (Optimized) -->
+            <div class="portfolio-card">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&fm=webp&q=75" alt="IronCore Fitness" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <a href="https://gym-eight-phi.vercel.app" target="_blank" class="btn btn-primary portfolio-btn">View Live Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Fitness & Health</span>
+                    <h3>IronCore Fitness</h3>
+                    <p>A high-performance gym website designed for strong branding and lead generation.</p>
+                    <ul class="portfolio-features">
+                        <li><strong>Industry:</strong> Fitness & Health</li>
+                        <li><strong>Goal:</strong> Lead generation</li>
+                        <li><strong>Features:</strong> WhatsApp booking, gallery, pricing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 3: Salon (Optimized) -->
+            <div class="portfolio-card">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&fm=webp&q=75" alt="Aura Beauty Lounge" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <a href="https://beauty-parlour-cyan.vercel.app" target="_blank" class="btn btn-primary portfolio-btn" style="background: linear-gradient(135deg, var(--gold) 0%, #d4af37 100%); box-shadow: var(--glow-gold); color: #000;">View Live Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Beauty & Luxury</span>
+                    <h3>Aura Beauty Lounge</h3>
+                    <p>A luxury beauty salon website crafted for elegant branding and premium user experience.</p>
+                    <ul class="portfolio-features">
+                        <li><strong>Industry:</strong> Beauty & Wellness</li>
+                        <li><strong>Goal:</strong> Brand trust</li>
+                        <li><strong>Features:</strong> Gallery, appointment flow</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 4: Restaurant (Optimized) -->
+            <div class="portfolio-card">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&fm=webp&q=75" alt="Spice Route Restaurant" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <a href="https://restaurant-xi-three.vercel.app" target="_blank" class="btn btn-primary portfolio-btn" style="background: linear-gradient(135deg, #ff7a00 0%, #e65c00 100%); box-shadow: 0 0 20px rgba(255, 122, 0, 0.4); color: #fff;">View Live Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Food & Hospitality</span>
+                    <h3>Spice Route Restaurant</h3>
+                    <p>A high-converting restaurant website designed for menu display, bookings, and online orders.</p>
+                    <ul class="portfolio-features">
+                        <li><strong>Industry:</strong> Food & Hospitality</li>
+                        <li><strong>Goal:</strong> Online bookings</li>
+                        <li><strong>Features:</strong> Menu, reservation system</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Project 5: Wonderkind Media (Optimized) -->
+            <div class="portfolio-card">
+                <div class="portfolio-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=600&fm=webp&q=75" alt="Wonderkind Media" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <a href="https://www.wonderkindmedia.co.in" target="_blank" class="btn btn-primary portfolio-btn" style="background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); box-shadow: 0 0 20px rgba(142, 45, 226, 0.4); color: #fff;">View Live Project</a>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <span class="portfolio-category">Video Production</span>
+                    <h3>Wonderkind Media</h3>
+                    <p>A sleek, modern platform crafted for a premium video production house to showcase cinematic portfolios.</p>
+                    <ul class="portfolio-features">
+                        <li><strong>Industry:</strong> Creative Production</li>
+                        <li><strong>Goal:</strong> Portfolio Showcase</li>
+                        <li><strong>Features:</strong> Custom UI, Video Gallery, Project Grid</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: View More Button -->
+        <div class="portfolio-footer">
+            <a onclick="scrollToSection('onboarding')" class="btn btn-outline">Start Your Project <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION (NEW) -->
+    <section id="testimonials" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Client Success Stories</h2>
+        <h3 class="section-subtitle">What businesses say about our digital systems</h3>
+        
+        <div class="grid-3">
+            <div class="card fade-element" style="padding: 35px 25px;">
+                <div style="display:flex; color:var(--gold); font-size:0.9rem; margin-bottom:15px; gap:4px;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p style="color:var(--text-main); font-style:italic; font-size:1rem; margin-bottom:20px; line-height:1.7;">"PrimePixel completely transformed our online presence. Our new website is lightning fast, and the WhatsApp automation integration they built immediately started saving our team hours of manual work."</p>
+                <div style="display:flex; align-items:center; gap:15px; border-top:var(--glass-border); padding-top:15px;">
+                    <div style="width:40px; height:40px; border-radius:50%; background:var(--electric-blue); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff;">S</div>
+                    <div>
+                        <h4 style="font-size:0.95rem; color:#fff;">Siddharth M.</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Fitness Entrepreneur</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card fade-element" style="padding: 35px 25px; border-color:rgba(59,193,255,0.3); box-shadow:var(--glow-blue);">
+                <div style="display:flex; color:var(--gold); font-size:0.9rem; margin-bottom:15px; gap:4px;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p style="color:var(--text-main); font-style:italic; font-size:1rem; margin-bottom:20px; line-height:1.7;">"We had a basic template site before. The PrimePixel team came in, restructured our entire Google Business Profile and built a custom UI that instantly elevated our brand to a luxury tier."</p>
+                <div style="display:flex; align-items:center; gap:15px; border-top:var(--glass-border); padding-top:15px;">
+                    <div style="width:40px; height:40px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-weight:700; color:#000;">N</div>
+                    <div>
+                        <h4 style="font-size:0.95rem; color:#fff;">Neha K.</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">Salon Owner</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card fade-element" style="padding: 35px 25px;">
+                <div style="display:flex; color:var(--gold); font-size:0.9rem; margin-bottom:15px; gap:4px;">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p style="color:var(--text-main); font-style:italic; font-size:1rem; margin-bottom:20px; line-height:1.7;">"Communication was excellent. They delivered the Elite Package ahead of schedule. The E-commerce and payment gateway runs flawlessly, and their ongoing support is phenomenal."</p>
+                <div style="display:flex; align-items:center; gap:15px; border-top:var(--glass-border); padding-top:15px;">
+                    <div style="width:40px; height:40px; border-radius:50%; background:var(--deep-blue); display:flex; align-items:center; justify-content:center; font-weight:700; color:#fff;">R</div>
+                    <div>
+                        <h4 style="font-size:0.95rem; color:#fff;">Rahul D.</h4>
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px;">E-commerce Director</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PACKAGES & PRICING -->
+    <section id="packages">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Digital Setup Packages</h2>
+        <h3 class="section-subtitle">Transparent investments for high-end results</h3>
+        
+        <p style="text-align:center; color:var(--text-muted); margin-top:-30px; margin-bottom:20px; font-size:0.9rem;">
+            Typical delivery time: 3–14 days depending on project complexity. <br> Built for performance, security, and scalability.
+        </p>
+
+        <!-- Trust Signal Badge -->
+        <div style="text-align:center; margin-bottom: 40px;">
+            <div class="availability-badge">
+                <span class="pulse-dot"></span> Currently onboarding new projects
+            </div>
+        </div>
+
+        <div class="grid-3">
+            <!-- Starter -->
+            <div class="card pricing-card">
+                <h3>Prime Launch Starter</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Google Presence Package</p>
+                <div class="price">₹5,999</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Google Business Profile setup</li>
+                    <li><i class="fas fa-check"></i> Business location pin correction</li>
+                    <li><i class="fas fa-check"></i> Add business photos & hours</li>
+                    <li><i class="fas fa-check"></i> Services or products listing</li>
+                    <li><i class="fas fa-check"></i> Google listing SEO optimization</li>
+                    <li><i class="fas fa-check"></i> Review request template</li>
+                    <li><i class="fas fa-check"></i> QR code for Google reviews</li>
+                    <li><i class="fas fa-check"></i> Basic Google visibility setup</li>
+                    <li><i class="fas fa-check"></i> 7 days technical support</li>
+                    <li style="color:#ff4d4d;"><i class="fas fa-times" style="color:#ff4d4d;"></i> No website included</li>
+                </ul>                    
+                <button class="btn btn-outline" onclick="startForm('Starter')">Select Starter</button>
+            </div>
+
+            <!-- Growth -->
+            <div class="card pricing-card" style="border-color:var(--electric-blue); box-shadow:var(--glow-blue);">
+                <div class="badge">MOST POPULAR</div>
+                <h3>Prime Launch Growth</h3>
+                <p style="color:var(--text-muted); font-size:0.9rem;">Visibility & Info Website</p>
+                <div class="price">₹19,999</div>
+                <ul>
+                    <li><i class="fas fa-check"></i> <b>Everything in Starter +</b></li>
+                    <li><i class="fas fa-check"></i> Premium website (4–5 pages)</li>
+                    <li><i class="fas fa-check"></i> Custom High-End UI / UX design</li>
+                    <li><i class="fas fa-check"></i> Fully responsive (Mobile/Tablet)</li>
+                    <li><i class="fas fa-check"></i> WhatsApp chat & Maps integration</li>
+                    <li><i class="fas fa-check"></i> Fast loading & Image optimization</li>
+                    <li><i class="fas fa-check"></i> Website security & SEO setup</li>
+                    <li><i class="fas fa-check"></i> Analytics & Email setup guidance</li>
+                    <li><i class="fas fa-check"></i> 30 days technical support</li>
+                </ul>
+                <button class="btn btn-primary" onclick="startForm('Growth')">Select Growth</button>
+            </div>
+
+            <!-- Elite: Enterprise Logistics OS -->
+            <div class="card pricing-card elite">
+                <div class="badge">ENTERPRISE OS</div>
+                <h3>Prime Launch Elite</h3>
+                <p style="color:var(--gold); font-size:0.8rem; font-weight: 700; letter-spacing: 1px;">THE LOGISTICS & D2C ENGINE</p>
+
+                <div class="elite-options-grid">
+                    <div class="elite-opt">
+                        <h4>Option A: Full Ownership</h4>
+                        <div class="opt-price"><span style="font-size:0.7rem; color:var(--text-muted); display:block; margin-bottom:2px;">Starting from</span>₹44,999</div>
+                        <span class="opt-desc">Setup fee exceeds based on complexity & customizations.</span>
+                    </div>
+                    <div class="elite-opt">
+                        <h4>Option B: Smart Rent (SaaS)</h4>
+                        <div class="opt-price">₹19,999 <span style="font-size:0.8rem; color:var(--gold);">+ ₹4,999/mo</span></div>
+                        <span class="opt-desc">Includes Premium Server & Tech Support.</span>
+                    </div>
+                </div>
+
+                <ul style="margin-bottom: 20px;">
+                    <div class="feature-group-title">1. High-End Brand UX</div>
+                    <li><i class="fas fa-play-circle"></i> Apple-Style Scrollytelling Engine</li>
+                    <li><i class="fas fa-mobile-alt"></i> Multi-Device Frame Logic (Portrait/Landscape)</li>
+                    <li><i class="fas fa-wand-magic-sparkles"></i> Premium Motion & Magnetic Hover</li>
+
+                    <div class="feature-group-title">2. Smart Logistics & Fleet</div>
+                    <li><i class="fas fa-user-check"></i> Automated Rider Attendance Dashboard</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Intelligent Available/Busy Rider Status</li>
+                    <li><i class="fab fa-whatsapp"></i> One-Click WhatsApp Dispatch (Auto-Maps)</li>
+
+                    <div class="feature-group-title">3. Real-Time Operations</div>
+                    <li><i class="fas fa-sync"></i> Zero-Refresh Data Sync (Instant Price/Stock)</li>
+                    <li><i class="fas fa-box"></i> Live Order Tracking Bar for Customers</li>
+                    <li><i class="fas fa-cash-register"></i> Built-in In-Store POS Sync System</li>
+
+                    <div class="feature-group-title">4. Marketing & Stability</div>
+                    <li><i class="fas fa-bullhorn"></i> WhatsApp Wishlist Re-stock Automation</li>
+                    <li><i class="fas fa-language"></i> Google Translate Crash Protection</li>
+                    <li><i class="fas fa-shield-check"></i> Transaction-Safe Stock Protection</li>
+                </ul>
+
+                <button class="btn btn-outline" style="border-color:var(--gold); color:var(--gold); width:100%;" onclick="startForm('Elite')">Select Enterprise OS</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. MAINTENANCE PLANS -->
+    <section id="maintenance">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Maintenance & Care Plans</h2>
+        <h3 class="section-subtitle">Keep your digital assets secure, fast, and updated</h3>
+
+        <!-- Toggle Switch -->
+        <div class="toggle-wrapper">
+            <span id="label-monthly" class="toggle-label active" onclick="setPricing('monthly')">Monthly</span>
+            <label class="switch">
+                <input type="checkbox" id="pricing-toggle" onchange="togglePricing()">
+                <span class="slider"></span>
+            </label>
+            <span id="label-yearly" class="toggle-label" onclick="setPricing('yearly')">Yearly</span>
+        </div>
+        
+        <p style="text-align:center; color:var(--electric-blue); font-size:0.95rem; margin-bottom:40px; font-weight:500; letter-spacing:1px; text-shadow:var(--glow-blue);">Save 10% with yearly plans.</p>
+
+        <div class="grid-3">
+            <div class="card pricing-card">
+                <h3>Starter Maintenance</h3>
+                <div class="price"><span class="price-val" data-monthly="1,499" data-yearly="16,189">1,499</span><span class="price-period">/mo</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Hosting & uptime monitoring</li>
+                    <li><i class="fas fa-check"></i> Monthly secure backup</li>
+                    <li><i class="fas fa-check"></i> Basic security checks</li>
+                    <li><i class="fas fa-check"></i> 4 minor edits (For extra edits ₹500/edit)</li>
+                    <li><i class="fas fa-check"></i> Standard email support</li>
+                </ul>
+                <button class="btn btn-outline" onclick="scrollToSection('contact')">Inquire Now</button>
+            </div>
+
+            <div class="card pricing-card" style="border-color:var(--electric-blue); box-shadow:var(--glow-blue);">
+                <div class="badge">RECOMMENDED</div>
+                <h3>Growth Maintenance</h3>
+                <div class="price"><span class="price-val" data-monthly="3,499" data-yearly="37,789">3,499</span><span class="price-period">/mo</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> <b>Everything in Starter +</b></li>
+                    <li><i class="fas fa-check"></i> 7 content updates (For extra edits ₹500/edit)</li>
+                    <li><i class="fas fa-check"></i> Basic SEO monitoring</li>
+                    <li><i class="fas fa-check"></i> Speed & performance checks</li>
+                    <li><i class="fas fa-check"></i> Priority WhatsApp support</li>
+                </ul>
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">Inquire Now</button>
+            </div>
+
+            <div class="card pricing-card elite">
+                <h3>Elite SaaS Support</h3>
+                <div class="price" style="color:var(--gold);"><span class="price-val" data-monthly="4,999" data-yearly="53,989">4,999</span><span class="price-period">/mo</span></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> <b>Everything in Growth +</b></li>
+                    <li><i class="fas fa-check"></i> Unlimited minor edits (fair use)</li>
+                    <li><i class="fas fa-check"></i> Landing page optimizations</li>
+                    <li><i class="fas fa-check"></i> Advanced technical monitoring</li>
+                    <li><i class="fas fa-check"></i> Priority fast-lane support</li>
+                </ul>
+                <button class="btn btn-outline" style="border-color:var(--gold); color:var(--gold);" onclick="scrollToSection('contact')">Inquire Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SMART ONBOARDING FORM -->
+    <section id="onboarding">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Start Your Project</h2>
+        <h3 class="section-subtitle">Step into the digital future</h3>
+
+        <div class="form-container">
+            <!-- Form Indicators -->
+            <div class="step-indicators">
+                <div class="step-dot active" id="dot-1">1</div>
+                <div class="step-dot" id="dot-2">2</div>
+                <div class="step-dot" id="dot-3"><i class="fas fa-check"></i></div>
+            </div>
+
+            <form id="projectForm" action="https://api.web3forms.com/submit" method="POST">
+                
+                <input type="hidden" name="access_key" value="77524327-9930-4503-9192-7cdc965d5d1b">
+                <input type="hidden" name="subject" value="New Project Request - PrimePixel Web">
+                <input type="hidden" name="from_name" value="PrimePixel Website">
+                
+                <!-- STEP 1: Choose Package -->
+                <div class="form-step active" id="step-1">
+                    <h3 style="margin-bottom: 20px; text-align:center;">Which package fits your needs?</h3>
+                    <div class="pkg-select-grid">
+                        <div class="pkg-option" onclick="selectFormPackage('Starter', this)">
+                            <h4>Prime Launch Starter</h4><span>₹5,999</span>
+                        </div>
+                        <div class="pkg-option" onclick="selectFormPackage('Growth', this)">
+                            <h4>Prime Launch Growth <small>(Recommended)</small></h4><span>₹19,999</span>
+                        </div>
+                        <div class="pkg-option" onclick="selectFormPackage('Elite', this)">
+                            <h4>Prime Launch Elite</h4><span>Starting from ₹44,999</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="Selected_Package" id="hiddenFormPackage" value="" required>
+                    <div class="form-actions" style="justify-content: flex-end;">
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Continue <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Client Details -->
+                <div class="form-step" id="step-2">
+                    <h3 style="margin-bottom: 20px; text-align:center;">Tell us about your business</h3>
+                    <div class="form-group">
+                        <label>Your Name *</label>
+                        <input type="text" name="Client_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Business Name *</label>
+                        <input type="text" name="Business_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone / WhatsApp *</label>
+                        <input type="tel" name="Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" name="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Briefly describe your requirements</label>
+                        <textarea name="Project_Details" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Request <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- FREE AUDIT CTA (NEW) -->
+    <section id="audit" style="text-align: center; background: radial-gradient(circle, rgba(59,193,255,0.05) 0%, transparent 60%); padding: 80px 5%; margin-top: 40px; border-top: var(--glass-border); border-bottom: var(--glass-border);">
+        <h2 class="section-title" style="font-size: 2.2rem;">Get a Free Website Audit</h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">Not sure what your business needs? Get a free consultation.</p>
+        <button class="btn btn-primary pulse-btn" onclick="scrollToSection('contact')">Get Free Audit</button>
+    </section>
+
+    <!-- 8. FAQ SECTION (SEO BOOST) -->
+    <section id="faq">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <h3 class="section-subtitle">Everything you need to know</h3>
+
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How much does website development cost in Navi Mumbai? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">At PrimePixel Web, we offer transparent pricing. Our foundational Google setups start at ₹5,999, standard informational business websites at ₹19,999, and comprehensive E-commerce/Custom platforms starting from ₹44,999.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">How long does it take to build a website? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">For standard business websites, our typical delivery timeline is 3 to 7 working days. Custom E-commerce setups or highly complex platforms may take 2 to 4 weeks depending on the required functionalities and client feedback speed.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Can I pay in installments? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, we offer milestone-based payment structures. Typically, we require a 50% advance to start the project, and the remaining 50% is due upon completion and before the final live launch.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Do I own the website after payment? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Absolutely. Once the project is completed and fully paid, you own 100% of the website, its design, and its content. There are no hidden licensing fees locking you in.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Can you redesign old websites? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, we can revamp and upgrade your existing website. We analyze your current platform's performance and give it a premium, modern, and highly convertible redesign while preserving your existing SEO value.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">What if I don't have a domain? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">No problem at all. We will assist you in selecting and registering the most optimal and brandable domain name for your business.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Do you provide SEO services? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, all our developed websites include basic on-page SEO. We also offer dedicated Monthly SEO services focusing on technical structure, keyword ranking, and local map optimization specifically targeting Mumbai and Maharashtra.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Do you offer e-commerce website development? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Absolutely. Our Prime Launch Elite package is designed specifically for online stores, integrating secure payment gateways like Razorpay, inventory management, and automated client notifications via SMS/WhatsApp.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Do you provide website maintenance? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, we highly recommend our maintenance plans starting at ₹1,499/month. These plans cover hosting, monthly backups, security checks, and content updates, ensuring your digital platform runs flawlessly.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Can you help with Google Business Profile optimization? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Yes, optimizing Google Business Profiles is one of our core specialties. We help local businesses in Navi Mumbai fix location pins, optimize service listings, and set up automated review collection systems to boost local visibility.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. CONTACT SECTION -->
+    <section id="contact" style="padding-bottom: 120px;">
+        <div class="section-divider"></div>
+        <div class="grid-2" style="align-items: center;">
+            <div>
+                <h2 style="font-size:2.5rem; font-family:'Montserrat'; margin-bottom:20px;">Let’s Build Your<br><span style="color:var(--electric-blue);">Digital Presence.</span></h2>
+                <p style="color:var(--text-muted); font-size:1.1rem; margin-bottom:40px;">Currently onboarding new projects. Drop us a message and our team will get back to you fast.</p>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-bolt"></i> Average response time: within 24 hours</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 9324802717</p>
+                    <p><i class="fab fa-whatsapp"></i> +91 9324802717</p>
+                    <p><i class="fas fa-envelope"></i> primepixelweb2026@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Navi Mumbai, Maharashtra</p>
+                </div>
+            </div>
+            
+            <div class="card">
+
+<h3 style="margin-bottom:20px;">Quick Inquiry</h3>
+
+<form id="inquiryForm" action="https://api.web3forms.com/submit" method="POST">
+
+<input type="hidden" name="access_key" value="77524327-9930-4503-9192-7cdc965d5d1b">
+
+<input type="hidden" name="subject" value="Quick Inquiry - PrimePixel Web">
+
+<input type="hidden" name="from_name" value="PrimePixel Website">
+
+<div class="form-group">
+<input type="text" name="Name" placeholder="Your Name" required>
+</div>
+
+<div class="form-group">
+<input type="email" name="Email" placeholder="Your Email" required>
+</div>
+
+<div class="form-group">
+<input type="tel" name="Phone" placeholder="Phone / WhatsApp Number" required>
+</div>
+
+<div class="form-group">
+<textarea name="Message" rows="4" placeholder="How can we help?" required></textarea>
+</div>
+
+<button type="submit" class="btn btn-outline" style="width:100%;" id="inquiryBtn">
+Send Message
+</button>
+
+</form>
+
+<div id="formSuccess" style="display:none; margin-top:15px; color:#3bc1ff; font-weight:600;">
+✅ Thank you! We will contact you shortly.
+</div>
+
+</div>
+                
+
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle"></i>
+            <h2 style="margin-bottom:10px;">Request Submitted</h2>
+            <p style="color:var(--text-muted); margin-bottom: 30px;">Thank you. Our team will contact you within 24 hours.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Return to Website</button>
+        </div>
+    </div>
+
+    <!-- 10. FOOTER -->
+    <footer>
+        <div class="footer-brand logo">
+            <span class="silver">Prime</span><span class="blue">Pixel</span> Web
+        </div>
+        <div class="footer-trust">Building Digital Experiences that Grow Businesses.</div>
+        <div class="footer-seo">Serving businesses across Navi Mumbai, Mumbai, and Maharashtra.</div>
+        
+        <!-- NEW SOCIAL HANDLES -->
+        <div class="footer-socials">
+            <a href="https://wa.me/919324802717" target="_blank" class="wa"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://instagram.com/primepixelweb2026" target="_blank" class="ig"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vighensh-kalantre-39a7843b5" target="_blank" class="li"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <div class="footer-links">
+            <a onclick="scrollToSection('home')">Home</a>
+            <a onclick="scrollToSection('services')">Services</a>
+            <a onclick="scrollToSection('packages')">Packages</a>
+            <a href="javascript:void(0)" onclick="openPrivacy()">Privacy Policy</a>
+            <a href="javascript:void(0)" onclick="openTerms()">Terms & Conditions</a>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2026 PrimePixel Web. All rights reserved. Designed & Engineered by PrimePixel Web.
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+    <script>
+        
+// --- Modern Scroll Animations (Intersection Observer) ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Auto-apply fade classes to main elements so you don't have to edit HTML tags manually
+            const elementsToAnimate = document.querySelectorAll('.card, .portfolio-card, .timeline-item, .compare-card, .section-title, .section-subtitle, .tech-badge');
+            elementsToAnimate.forEach(el => {
+                el.classList.add('fade-element');
+                observer.observe(el);
+            });
+        });
+        // --- Navbar Scroll & Back to Top ---
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            const btt = document.getElementById('backToTop');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+                if(btt) btt.classList.add('visible');
+            } else {
+                nav.classList.remove('scrolled');
+                if(btt) btt.classList.remove('visible');
+            }
+            
+            // Scroll Spy
+            let current = '';
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-item').forEach(li => {
+                li.classList.remove('active');
+                if (li.getAttribute('onclick').includes(current)) {
+                    li.classList.add('active');
+                }
+            });
+        });
+
+        // --- Smooth Scroll ---
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('navLinks').classList.remove('active'); // Close mobile menu
+        }
+
+        // --- Mobile Menu Toggle ---
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // --- Pricing Toggle (Monthly/Yearly) ---
+        function togglePricing() {
+            const toggle = document.getElementById('pricing-toggle');
+            updatePricingUI(toggle.checked ? 'yearly' : 'monthly');
+        }
+
+        function setPricing(type) {
+            const toggle = document.getElementById('pricing-toggle');
+            toggle.checked = (type === 'yearly');
+            updatePricingUI(type);
+        }
+
+        function updatePricingUI(type) {
+            document.getElementById('label-monthly').classList.toggle('active', type === 'monthly');
+            document.getElementById('label-yearly').classList.toggle('active', type === 'yearly');
+            
+            document.querySelectorAll('.price-val').forEach(el => {
+                el.innerText = el.getAttribute('data-' + type);
+            });
+            document.querySelectorAll('.price-period').forEach(el => {
+                el.innerText = type === 'monthly' ? '/mo' : '/yr';
+            });
+        }
+
+        // --- FAQ Accordion ---
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+
+        // --- Smart Form Logic ---
+        function startForm(pkg) {
+            scrollToSection('onboarding');
+            // Auto-select package in form
+            document.querySelectorAll('.pkg-option').forEach(opt => {
+                if(opt.innerText.includes(pkg)) {
+                    selectFormPackage(pkg, opt);
+                }
+            });
+        }
+
+        function selectFormPackage(pkg, element) {
+            document.querySelectorAll('.pkg-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            document.getElementById('hiddenFormPackage').value = pkg;
+        }
+
+        function nextStep(current) {
+            const pkg = document.getElementById('hiddenFormPackage').value;
+            if(current === 1 && !pkg) {
+                alert("Please select a package to continue.");
+                return;
+            }
+            document.getElementById('step-' + current).classList.remove('active');
+            document.getElementById('step-' + (current + 1)).classList.add('active');
+            
+            document.getElementById('dot-' + current).classList.replace('active', 'completed');
+            document.getElementById('dot-' + current).innerHTML = '<i class="fas fa-check"></i>';
+            document.getElementById('dot-' + (current + 1)).classList.add('active');
+        }
+
+        function prevStep(current) {
+            document.getElementById('step-' + current).classList.remove('active');
+            document.getElementById('step-' + (current - 1)).classList.add('active');
+            
+            document.getElementById('dot-' + current).classList.remove('active');
+            document.getElementById('dot-' + (current - 1)).classList.remove('completed');
+            document.getElementById('dot-' + (current - 1)).classList.add('active');
+            document.getElementById('dot-' + (current - 1)).innerHTML = (current - 1);
+        }
+
+        function setupForm(formId, btnId, successCallback){
+
+const form=document.getElementById(formId);
+
+if(!form)return;
+
+form.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const btn=document.getElementById(btnId);
+
+const original=btn.innerHTML;
+
+btn.innerHTML='Sending... <i class="fas fa-circle-notch fa-spin"></i>';
+
+btn.disabled=true;
+
+try{
+
+const response=await fetch(
+"https://api.web3forms.com/submit",
+{
+method:"POST",
+body:new FormData(form)
+}
+);
+
+const data=await response.json();
+
+console.log(data);
+
+if(data.success){
+
+successCallback(form);
+
+}else{
+
+alert("Form not sent");
+
+}
+
+}catch(error){
+
+console.log(error);
+
+alert("Network error");
+
+}
+
+btn.innerHTML=original;
+
+btn.disabled=false;
+
+});
+
+}
+
+        // Initialize Project Form
+        setupForm('projectForm', 'submitBtn', (form) => {
+            document.getElementById('successModal').style.display = 'flex';
+            form.reset();
+            prevStep(2); 
+            document.querySelectorAll('.pkg-option').forEach(el => el.classList.remove('selected'));
+            document.getElementById('hiddenFormPackage').value = '';
+        });
+
+        // Initialize Inquiry Form
+        setupForm('inquiryForm', 'inquiryBtn', (form) => {
+            document.getElementById("formSuccess").style.display = "block";
+            form.reset();
+            setTimeout(() => {
+                document.getElementById("formSuccess").style.display = "none";
+            }, 5000);
+        });
+
+        // --- Modals Logic ---
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    
+        function openPrivacy() {
+            document.getElementById('privacyModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closePrivacy() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        function openTerms() {
+            document.getElementById("termsModal").style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeTerms() {
+            document.getElementById("termsModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // Close modal if user clicks outside the content
+        window.onclick = function(event) {
+            let privacyModal = document.getElementById("privacyModal");
+            let termsModal = document.getElementById("termsModal");
+            if (event.target == privacyModal) closePrivacy();
+            if (event.target == termsModal) closeTerms();
+        }
+    </script>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal legal-modal" id="privacyModal">
+        <div class="modal-content">
+            <span class="close-legal" onclick="closePrivacy()">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p><strong>Effective Date:</strong> 22 May 2026</p>
+
+            <h4>1. Information We Collect</h4>
+            <p>We may collect information including name, email address, phone number, business details, project requirements, and any information voluntarily submitted through inquiry forms or communication channels.</p>
+
+            <h4>2. How We Use Information</h4>
+            <p>The information collected may be used for responding to inquiries, providing website development services, client communication, project discussions, and improving our services.</p>
+
+            <h4>3. Information Protection</h4>
+            <p>PrimePixel Web takes reasonable security measures to protect client information from unauthorized access, misuse, or disclosure.</p>
+
+            <h4>4. Third-Party Services</h4>
+            <p>Our website may use third-party services including hosting providers, payment gateways, analytics tools, and social media integrations.</p>
+
+            <h4>5. Cookies</h4>
+            <p>Our website may use cookies or similar technologies to improve user experience and website performance.</p>
+
+            <h4>6. Client Content</h4>
+            <p>All content, logos, media, and business information provided by clients remain the property of their respective owners.</p>
+
+            <h4>7. Changes to Policy</h4>
+            <p>PrimePixel Web reserves the right to update or modify this Privacy Policy at any time without prior notice.</p>
+
+            <h4>8. Contact Information</h4>
+            <p>PrimePixel Web<br>Email: primepixelweb2026@gmail.com<br>Website: www.primepixelweb.in</p>
+        </div>
+    </div>
+
+    <!-- TERMS & CONDITIONS MODAL -->
+    <div class="modal legal-modal" id="termsModal">
+        <div class="modal-content">
+            <span class="close-legal" onclick="closeTerms()">&times;</span>
+            <h2>Terms & Conditions</h2>
+            <p><strong>Effective Date:</strong> 22 May 2026</p>
+
+            <h4>1. Services</h4>
+            <p>PrimePixel Web provides services including Website Development, Website Maintenance, Landing Page Development, Portfolio Websites, Business Websites, UI/UX Design, and Digital Solutions.</p>
+
+            <h4>2. Project Confirmation</h4>
+            <p>A project is considered confirmed once both parties agree on the scope of work, pricing, and delivery timeline.</p>
+
+            <h4>3. Payment Terms</h4>
+            <p>50% advance payment is mandatory before starting any project. The remaining 50% payment must be completed before final project delivery. No project work will begin before receiving the advance payment. Advance payments are strictly non-refundable once the project has been initiated.</p>
+
+            <h4>4. Refund Policy</h4>
+            <p>Due to the time, planning, development, and resources involved in digital services, advance payments are non-refundable once the project work has started.</p>
+
+            <h4>5. Client Responsibilities</h4>
+            <p>Clients are responsible for providing correct business information, logos, images, content, approvals, and necessary access credentials required for project completion.</p>
+
+            <h4>6. Access & Credentials</h4>
+            <p>PrimePixel Web may require temporary access to client accounts such as Gmail or other platforms for project-related setup and integrations. Such access will remain confidential and only used for project-related work.</p>
+
+            <h4>7. Revisions & Changes</h4>
+            <p>Reasonable revisions may be provided during the project timeline. Major additional changes outside the agreed scope may involve extra charges.</p>
+
+            <h4>8. Third-Party Platforms</h4>
+            <p>PrimePixel Web may integrate third-party platforms including hosting providers, payment gateways, domains, APIs, and external tools.</p>
+
+            <h4>9. Website Maintenance</h4>
+            <p>Maintenance services may include basic technical support, security monitoring, backups, updates, and bug fixes as covered under the maintenance plan.</p>
+
+            <h4>10. Intellectual Property & Marketing</h4>
+            <p>Client-owned content remains the property of the client. However, PrimePixel Web reserves the right to feature the completed website on our portfolio, social media channels, and marketing materials for advertisement purposes without requiring prior permission. We guarantee that no private, sensitive, or backend data will be shared—only the public-facing front view of the website will be showcased.</p>
+
+            <h4>11. Limitation of Liability</h4>
+            <p>PrimePixel Web shall not be held responsible for business losses, third-party downtime, hosting issues, domain verification delays, or client-side credential/security issues after handover.</p>
+
+            <h4>12. Changes to Terms</h4>
+            <p>PrimePixel Web reserves the right to modify these Terms & Conditions at any time without prior notice.</p>
+
+            <h4>13. Contact Information</h4>
+            <p>PrimePixel Web<br>Email: primepixelweb2026@gmail.com<br>Website: www.primepixelweb.in</p>
+        </div>
+    </div>
+
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
