@@ -708,32 +708,67 @@
         .faq-item.active .faq-answer { max-height: 400px; margin-top: 15px; }
         .faq-item.active .faq-question i { transform: rotate(180deg); }
 
-        /* ================= SMART ONBOARDING FORM ================= */
-        .form-container { max-width: 700px; margin: 0 auto; background: var(--bg-card); padding: 50px; border-radius: 12px; border: var(--glass-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
-        .form-step { display: none; animation: fadeIn 0.4s ease; }
-        .form-step.active { display: block; }
-        .step-indicators { display: flex; justify-content: space-between; margin-bottom: 30px; position: relative; }
-        .step-indicators::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 2px; background: rgba(255,255,255,0.1); z-index: 1; }
-        .step-dot { width: 30px; height: 30px; border-radius: 50%; background: var(--bg-black); border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; z-index: 2; color: var(--text-muted); transition: 0.3s; }
-        .step-dot.active { border-color: var(--electric-blue); color: var(--electric-blue); box-shadow: var(--glow-blue); }
-        .step-dot.completed { background: var(--electric-blue); color: #fff; border-color: var(--electric-blue); }
+        /* ================= MASTER SYSTEM BUILDER & ESTIMATOR ================= */
+        .form-container { max-width: 1100px; margin: 0 auto; background: var(--bg-black); padding: 40px; border-radius: 16px; border: var(--glass-border); box-shadow: 0 20px 50px rgba(0,0,0,0.8); position: relative; }
+        .form-step { display: none; }
+        .form-step.active { display: block; animation: fadeIn 0.5s ease; }
         
-        .pkg-select-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 20px; }
-        .pkg-option { padding: 20px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; cursor: pointer; transition: 0.3s; display: flex; justify-content: space-between; align-items: center; }
-        .pkg-option:hover { border-color: rgba(59,193,255,0.5); background: rgba(59,193,255,0.05); }
-        .pkg-option.selected { border-color: var(--electric-blue); background: rgba(59,193,255,0.1); box-shadow: var(--glow-blue); }
-        .pkg-option h4 { font-size: 1.1rem; color: #fff; }
-        .pkg-option span { color: var(--electric-blue); font-weight: bold; }
+        .step-indicators { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; max-width: 400px; margin-left: auto; margin-right: auto; }
+        .step-indicators::before { content: ''; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: rgba(255,255,255,0.1); z-index: 1; }
+        .step-dot { width: 35px; height: 35px; border-radius: 50%; background: #111; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; z-index: 2; color: #555; transition: 0.4s; }
+        .step-dot.active { border-color: var(--electric-blue); color: var(--electric-blue); box-shadow: var(--glow-blue); background: #000; }
+        .step-dot.completed { background: var(--electric-blue); color: #000; border-color: var(--electric-blue); }
+
+        .pkg-select-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .pkg-option { padding: 30px; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.02); text-align: center; }
+        .pkg-option:hover { border-color: var(--electric-blue); background: rgba(59, 193, 255, 0.05); }
+        .pkg-option.selected { border-color: var(--electric-blue); background: rgba(59, 193, 255, 0.1); box-shadow: var(--glow-blue); }
+        .pkg-option h4 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+        .pkg-option span { color: var(--electric-blue); font-weight: 800; font-size: 1.1rem; }
+
+        /* Master Module Grid */
+        #module-selection-step { margin-top: 40px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); }
+        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .module-item { 
+            background: rgba(15,15,15,0.6); border: 1px solid rgba(255,255,255,0.05); 
+            padding: 20px; border-radius: 10px; cursor: pointer; transition: 0.3s;
+            display: flex; gap: 15px; align-items: flex-start; position: relative;
+        }
+        .module-item:hover { border-color: rgba(59, 193, 255, 0.3); background: rgba(59, 193, 255, 0.03); }
+        .module-item.selected { border-color: var(--gold); background: rgba(241, 196, 15, 0.04); box-shadow: var(--glow-gold); }
+        
+        .module-checkbox { 
+            width: 20px; height: 20px; border: 1px solid rgba(255,255,255,0.2); 
+            border-radius: 4px; display: flex; align-items: center; justify-content: center; 
+            margin-top: 4px; flex-shrink: 0; color: transparent; font-size: 0.7rem;
+        }
+        .module-item.selected .module-checkbox { background: var(--gold); border-color: var(--gold); color: #000; }
+        
+        .module-info { flex-grow: 1; }
+        .module-info h5 { color: #fff; font-size: 0.95rem; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .module-info h5 span { color: var(--gold); font-weight: 800; font-size: 0.85rem; }
+        .module-info p { color: #888; font-size: 0.8rem; line-height: 1.4; margin-bottom: 6px; }
+        .module-benefit { color: var(--electric-blue) !important; font-size: 0.7rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Summary Bar */
+        .price-summary-bar {
+            position: sticky; bottom: 0; background: #0a0a0a; border: 1px solid var(--electric-blue); 
+            padding: 20px 30px; border-radius: 12px; display: flex; justify-content: space-between; 
+            align-items: center; margin-top: 30px; z-index: 10; box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+        }
+        .total-label { color: #aaa; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
+        .total-amount { color: #fff; font-size: 2rem; font-weight: 800; font-family: 'Montserrat'; }
+        .total-amount span { color: var(--electric-blue); }
+
+        @media (max-width: 768px) { .module-grid { grid-template-columns: 1fr; } }
 
         .form-group { margin-bottom: 25px; }
         .form-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; color: var(--text-main); font-weight: 500; }
-        .form-group input, .form-group textarea, .form-group select {
+        .form-group input, .form-group textarea {
             width: 100%; padding: 15px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
             color: #fff; border-radius: 6px; font-family: 'Inter', sans-serif; transition: 0.3s;
         }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none; border-color: var(--electric-blue); box-shadow: 0 0 10px rgba(59,193,255,0.2); background: rgba(0,0,0,0.8);
-        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--electric-blue); outline: none; background: rgba(0,0,0,0.8); }
         .form-actions { display: flex; justify-content: space-between; margin-top: 30px; }
 
         /* ================= FOOTER & CONTACT ================= */
@@ -1477,59 +1512,91 @@
                 <div class="step-dot" id="dot-3"><i class="fas fa-check"></i></div>
             </div>
 
-            <form id="projectForm" action="https://api.web3forms.com/submit" method="POST">
-                
+            <form id="projectForm">
+                <!-- Web3Forms Hidden Inputs -->
                 <input type="hidden" name="access_key" value="77524327-9930-4503-9192-7cdc965d5d1b">
-                <input type="hidden" name="subject" value="New Project Request - PrimePixel Web">
-                <input type="hidden" name="from_name" value="PrimePixel Website">
-                
-                <!-- STEP 1: Choose Package -->
+                <input type="hidden" name="subject" value="Elite Project Quote Request">
+                <input type="hidden" name="Selected_Package" id="hiddenFormPackage" value="">
+                <input type="hidden" name="Selected_Modules" id="hiddenSelectedModules" value="None">
+                <input type="hidden" name="Final_Quote_Total" id="hiddenFinalTotal" value="0">
+
+                <!-- STEP 1: Core Package Selection -->
                 <div class="form-step active" id="step-1">
-                    <h3 style="margin-bottom: 20px; text-align:center;">Which package fits your needs?</h3>
+                    <h3 style="text-align:center; margin-bottom:30px;">Select Your Base Engine</h3>
                     <div class="pkg-select-grid">
-                        <div class="pkg-option" onclick="selectFormPackage('Starter', this)">
-                            <h4>Prime Launch Starter</h4><span>₹5,999</span>
+                        <div class="pkg-option" id="pkg-Starter" onclick="selectBasePackage('Starter', 5999, this)">
+                            <h4>Starter</h4><span>₹5,999</span>
                         </div>
-                        <div class="pkg-option" onclick="selectFormPackage('Growth', this)">
-                            <h4>Prime Launch Growth <small>(Recommended)</small></h4><span>₹19,999</span>
+                        <div class="pkg-option" id="pkg-Growth" onclick="selectBasePackage('Growth', 19999, this)">
+                            <h4>Growth</h4><span>₹19,999</span>
                         </div>
-                        <div class="pkg-option" onclick="selectFormPackage('Elite', this)">
-                            <h4>Prime Launch Elite</h4><span>Starting from ₹44,999</span>
+                        <div class="pkg-option" id="pkg-Elite" onclick="selectBasePackage('Elite', 44999, this)">
+                            <h4>Elite OS</h4><span>₹44,999</span>
                         </div>
                     </div>
-                    <input type="hidden" name="Selected_Package" id="hiddenFormPackage" value="" required>
+
+                    <!-- Module Selection (Only visible if Elite is chosen) -->
+                    <div id="module-selection-step" style="display:none;">
+                        <h4 style="text-align:center; margin-bottom:25px; color:var(--gold);">Configure Advanced Logic Modules</h4>
+                        <div class="module-grid">
+                            <div class="module-item" onclick="toggleModule('Scrollytelling', 18000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Apple-Style Scrollytelling <span>+₹18,000</span></h5><p>Interactive video engine for product quality visualization.</p><p class="module-benefit">Benefit: Luxury Brand Appeal</p></div></div>
+                            <div class="module-item" onclick="toggleModule('HeavyRain', 12000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Global Crisis "Heavy Rain" Toggle <span>+₹12,000</span></h5><p>One-click logic for monsoon/emergency logistics warnings.</p><p class="module-benefit">Benefit: Managed Customer Expectations</p></div></div>
+                            <div class="module-item" onclick="toggleModule('WhatsAppCapture', 15000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Lead Logic <span>+₹15,000</span></h5><p>Mandatory verified WhatsApp logins for your database.</p><p class="module-benefit">Benefit: High-Conversion Marketing Asset</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ShopSchedule', 8000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Smart Shop Scheduling <span>+₹8,000</span></h5><p>Automated Open/Closed timings with manual override.</p><p class="module-benefit">Benefit: Zero Manual Monitoring</p></div></div>
+                            <div class="module-item" onclick="toggleModule('SearchAlias', 10000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Search Alias <span>+₹10,000</span></h5><p>Smart mapping of synonyms to prevent zero-result sales loss.</p><p class="module-benefit">Benefit: Increases Conversion by 25%</p></div></div>
+                            <div class="module-item" onclick="toggleModule('InventorySync', 9000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Real-Time Inventory Sync <span>+₹9,000</span></h5><p>Live zero-refresh stock logic for out-of-stock items.</p><p class="module-benefit">Benefit: Prevents Dispute Orders</p></div></div>
+                            <div class="module-item" onclick="toggleModule('NetworkShield', 5000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Network Status Shield <span>+₹5,000</span></h5><p>Monitors connectivity during checkout to prevent failures.</p><p class="module-benefit">Benefit: Prevents Transaction Loss</p></div></div>
+                            <div class="module-item" onclick="toggleModule('DeliveryPanel', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Boy Panel <span>+₹12,999</span></h5><p>Exclusive mobile portal for riders to manage orders.</p><p class="module-benefit">Benefit: Organized Logistics</p></div></div>
+                            <div class="module-item" onclick="toggleModule('LiveTracking', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Live Delivery Tracking <span>+₹19,999</span></h5><p>Real-time Google Maps tracking for customers.</p><p class="module-benefit">Benefit: Enhances Customer Trust</p></div></div>
+                            <div class="module-item" onclick="toggleModule('POSBilling', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>POS Billing System <span>+₹14,999</span></h5><p>Advanced point-of-sale logic for counter orders.</p><p class="module-benefit">Benefit: Synchronized Offline/Online Sales</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ThermalPrint', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Thermal Printer Integration <span>+₹7,999</span></h5><p>One-click bill printing logic for kitchen orders.</p><p class="module-benefit">Benefit: Faster Order Fulfillment</p></div></div>
+                            <div class="module-item" onclick="toggleModule('WhatsAppNotify', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Order Notifications <span>+₹5,999</span></h5><p>Automated order status alerts directly on WhatsApp.</p><p class="module-benefit">Benefit: Instant Customer Engagement</p></div></div>
+                            <div class="module-item" onclick="toggleModule('SMSNotify', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>SMS Notifications <span>+₹7,999</span></h5><p>Priority transactional SMS for OTP and Order IDs.</p><p class="module-benefit">Benefit: High Reachability</p></div></div>
+                            <div class="module-item" onclick="toggleModule('EmailNotify', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Email Notifications <span>+₹4,999</span></h5><p>Branded professional invoices sent via Email.</p><p class="module-benefit">Benefit: Professional Post-Sale Experience</p></div></div>
+                            <div class="module-item" onclick="toggleModule('AdvAnalytics', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Analytics Dashboard <span>+₹14,999</span></h5><p>Deep insights into user behavior and sales funnels.</p><p class="module-benefit">Benefit: Data-Driven Growth</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ProfitReports', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Sales & Profit Reports <span>+₹9,999</span></h5><p>Automated accounting logic for monthly profit/loss.</p><p class="module-benefit">Benefit: Accurate Financial Oversight</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ExpenseTracker', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Expense Analytics <span>+₹5,999</span></h5><p>Track business expenditures and operational costs.</p><p class="module-benefit">Benefit: Smart Budget Management</p></div></div>
+                            <div class="module-item" onclick="toggleModule('LoyaltyRewards', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Loyalty & Rewards Program <span>+₹12,999</span></h5><p>Reward points engine to keep customers returning.</p><p class="module-benefit">Benefit: Increased Retention Rate</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ReferralSystem', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Referral System <span>+₹14,999</span></h5><p>Incentivize customers to share and bring new users.</p><p class="module-benefit">Benefit: Organic Customer Acquisition</p></div></div>
+                            <div class="module-item" onclick="toggleModule('PromoCodes', 8999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Coupons & Promo Codes <span>+₹8,999</span></h5><p>Flexible discounting engine for marketing campaigns.</p><p class="module-benefit">Benefit: Boosts Sales Performance</p></div></div>
+                            <div class="module-item" onclick="toggleModule('Wishlist', 3999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Wishlist <span>+₹3,999</span></h5><p>Allows users to save products for future purchase.</p><p class="module-benefit">Benefit: Reduces Cart Abandonment</p></div></div>
+                            <div class="module-item" onclick="toggleModule('MultiLanguage', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-language Support <span>+₹12,999</span></h5><p>Advanced switcher for Marathi, Hindi, and English.</p><p class="module-benefit">Benefit: Targets Local Market Verticals</p></div></div>
+                            <div class="module-item" onclick="toggleModule('MultiCity', 29999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-city Delivery <span>+₹29,999</span></h5><p>Scalable logistics for operating across multiple cities.</p><p class="module-benefit">Benefit: Business Expansion Ready</p></div></div>
+                            <div class="module-item" onclick="toggleModule('ZoneMapping', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Zone Mapping <span>+₹12,999</span></h5><p>Define delivery areas with custom polygon mapping.</p><p class="module-benefit">Benefit: Precise Operational Boundaries</p></div></div>
+                            <div class="module-item" onclick="toggleModule('DistanceDelivery', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Google Maps Distance Delivery <span>+₹19,999</span></h5><p>Charges dynamically based on KM distance from shop.</p><p class="module-benefit">Benefit: Fair Logistics Pricing</p></div></div>
+                            <div class="module-item" onclick="toggleModule('InventoryAlerts', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Inventory Alerts <span>+₹4,999</span></h5><p>Low-stock warnings sent to admin dashboard.</p><p class="module-benefit">Benefit: Prevents Stockouts</p></div></div>
+                            <div class="module-item" onclick="toggleModule('CloudinaryOpt', 6999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Cloudinary Optimization <span>+₹6,999</span></h5><p>Lightning-fast image delivery via premium CDN.</p><p class="module-benefit">Benefit: 50% Faster Website Loading</p></div></div>
+                            <div class="module-item" onclick="toggleModule('RecipeSection', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Recipe Section <span>+₹5,999</span></h5><p>Educational content to drive user engagement.</p><p class="module-benefit">Benefit: Increases Organic SEO</p></div></div>
+                            <div class="module-item" onclick="toggleModule('HealthBenefits', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Health Benefits Section <span>+₹4,999</span></h5><p>Display nutritional data for your products.</p><p class="module-benefit">Benefit: High-Trust Sales Experience</p></div></div>
+                            <div class="module-item" onclick="toggleModule('PushNotify', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Push Notifications <span>+₹9,999</span></h5><p>Browser/Mobile pop-up alerts for offers.</p><p class="module-benefit">Benefit: Direct Retargeting Channel</p></div></div>
+                        </div>
+                    </div>
+
+                    <div class="price-summary-bar">
+                        <div class="total-label">Estimated Project Value:</div>
+                        <div class="total-amount">₹<span id="display-total">0</span></div>
+                    </div>
+
                     <div class="form-actions" style="justify-content: flex-end;">
-                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Continue <i class="fas fa-arrow-right"></i></button>
+                        <button type="button" class="btn btn-primary" id="btn-to-step-2" onclick="nextStep(1)">Configure Details <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
                 <!-- STEP 2: Client Details -->
                 <div class="form-step" id="step-2">
-                    <h3 style="margin-bottom: 20px; text-align:center;">Tell us about your business</h3>
+                    <h3 style="margin-bottom: 30px; text-align:center;">Finalize Your Request</h3>
+                    <div class="form-group"><label>Your Full Name *</label><input type="text" name="Name" required></div>
+                    <div class="form-group"><label>Business Name *</label><input type="text" name="Business" required></div>
+                    <div class="form-group"><label>WhatsApp Number *</label><input type="tel" name="WhatsApp" required></div>
+                    <div class="form-group"><label>Email Address *</label><input type="email" name="Email" required></div>
                     <div class="form-group">
-                        <label>Your Name *</label>
-                        <input type="text" name="Client_Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Business Name *</label>
-                        <input type="text" name="Business_Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone / WhatsApp *</label>
-                        <input type="tel" name="Phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address *</label>
-                        <input type="email" name="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Briefly describe your requirements</label>
-                        <textarea name="Project_Details" rows="3"></textarea>
+                        <label>Specific Customization Requests</label>
+                        <textarea name="Notes" rows="3" placeholder="Tell us more about your specific needs..."></textarea>
                     </div>
                     
                     <div class="form-actions">
-                        <button type="button" class="btn btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
-                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Request <i class="fas fa-paper-plane"></i></button>
+                        <button type="button" class="btn btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Edit Quote</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Submit for Consultation <i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
             </form>
@@ -1783,29 +1850,68 @@ Send Message
             element.classList.toggle('active');
         }
 
-        // --- Smart Form Logic ---
-        function startForm(pkg) {
-            scrollToSection('onboarding');
-            // Auto-select package in form
-            document.querySelectorAll('.pkg-option').forEach(opt => {
-                if(opt.innerText.includes(pkg)) {
-                    selectFormPackage(pkg, opt);
-                }
-            });
-        }
+        // --- ADVANCED PROJECT ESTIMATOR LOGIC ---
+        let currentTotal = 0;
+        let basePackagePrice = 0;
+        let selectedModules = new Set();
+        const modulePrices = { 
+            'Scrollytelling': 18000, 'HeavyRain': 12000, 'WhatsAppCapture': 15000, 'ShopSchedule': 8000, 'SearchAlias': 10000, 'InventorySync': 9000, 'NetworkShield': 5000, 'DeliveryPanel': 12999, 'LiveTracking': 19999, 'POSBilling': 14999, 'ThermalPrint': 7999, 'WhatsAppNotify': 5999, 'SMSNotify': 7999, 'EmailNotify': 4999, 'AdvAnalytics': 14999, 'ProfitReports': 9999, 'ExpenseTracker': 5999, 'LoyaltyRewards': 12999, 'ReferralSystem': 14999, 'PromoCodes': 8999, 'Wishlist': 3999, 'MultiLanguage': 12999, 'MultiCity': 29999, 'ZoneMapping': 12999, 'DistanceDelivery': 19999, 'InventoryAlerts': 4999, 'CloudinaryOpt': 6999, 'RecipeSection': 5999, 'HealthBenefits': 4999, 'PushNotify': 9999
+        };
 
-        function selectFormPackage(pkg, element) {
+        function selectBasePackage(pkg, price, element) {
+            basePackagePrice = price;
+            document.getElementById('hiddenFormPackage').value = pkg;
+            
+            // UI Toggle
             document.querySelectorAll('.pkg-option').forEach(el => el.classList.remove('selected'));
             element.classList.add('selected');
-            document.getElementById('hiddenFormPackage').value = pkg;
+
+            // Show/Hide Module Selection
+            const moduleStep = document.getElementById('module-selection-step');
+            if(pkg === 'Elite') {
+                moduleStep.style.display = 'block';
+            } else {
+                moduleStep.style.display = 'none';
+                selectedModules.clear();
+                document.querySelectorAll('.module-item').forEach(el => el.classList.remove('selected'));
+            }
+            updateProjectTotal();
+        }
+
+        function toggleModule(name, price, element) {
+            if(selectedModules.has(name)) {
+                selectedModules.delete(name);
+                element.classList.remove('selected');
+            } else {
+                selectedModules.add(name);
+                element.classList.add('selected');
+            }
+            updateProjectTotal();
+        }
+
+        function updateProjectTotal() {
+            let modulesSum = 0;
+            selectedModules.forEach(mod => { modulesSum += modulePrices[mod]; });
+            currentTotal = basePackagePrice + modulesSum;
+            
+            // Update UI
+            document.getElementById('display-total').innerText = currentTotal.toLocaleString('en-IN');
+            
+            // Update Hidden Inputs for Web3Forms
+            document.getElementById('hiddenFinalTotal').value = currentTotal;
+            document.getElementById('hiddenSelectedModules').value = selectedModules.size > 0 ? Array.from(selectedModules).join(', ') : "None";
+        }
+
+        function startForm(pkg) {
+            scrollToSection('onboarding');
+            const target = document.getElementById('pkg-' + pkg);
+            if(target) target.click();
         }
 
         function nextStep(current) {
             const pkg = document.getElementById('hiddenFormPackage').value;
-            if(current === 1 && !pkg) {
-                alert("Please select a package to continue.");
-                return;
-            }
+            if(!pkg) { alert("Please select a base package."); return; }
+            
             document.getElementById('step-' + current).classList.remove('active');
             document.getElementById('step-' + (current + 1)).classList.add('active');
             
@@ -1882,13 +1988,22 @@ btn.disabled=false;
 
 }
 
-        // Initialize Project Form
+        // Initialize Enhanced Project Form
         setupForm('projectForm', 'submitBtn', (form) => {
             document.getElementById('successModal').style.display = 'flex';
             form.reset();
-            prevStep(2); 
+            // Reset local variables
+            currentTotal = 0;
+            basePackagePrice = 0;
+            selectedModules.clear();
+            updateProjectTotal();
+            // Go back to step 1 UI
+            document.getElementById('step-2').classList.remove('active');
+            document.getElementById('step-1').classList.add('active');
+            document.getElementById('dot-2').classList.remove('active');
+            document.getElementById('dot-1').classList.add('active');
+            document.getElementById('dot-1').innerHTML = "1";
             document.querySelectorAll('.pkg-option').forEach(el => el.classList.remove('selected'));
-            document.getElementById('hiddenFormPackage').value = '';
         });
 
         // Initialize Inquiry Form
