@@ -1509,7 +1509,8 @@
             <div class="step-indicators">
                 <div class="step-dot active" id="dot-1">1</div>
                 <div class="step-dot" id="dot-2">2</div>
-                <div class="step-dot" id="dot-3"><i class="fas fa-check"></i></div>
+                <div class="step-dot" id="dot-3">3</div>
+                <div class="step-dot" id="dot-4"><i class="fas fa-check"></i></div>
             </div>
 
             <form id="projectForm">
@@ -1518,6 +1519,9 @@
                 <input type="hidden" name="subject" value="Elite Project Quote Request">
                 <input type="hidden" name="Selected_Package" id="hiddenFormPackage" value="">
                 <input type="hidden" name="Selected_Modules" id="hiddenSelectedModules" value="None">
+                <input type="hidden" name="Ownership_Plan" id="hiddenOwnershipPlan" value="Buy">
+                <input type="hidden" name="Setup_Fee" id="hiddenSetupFee" value="0">
+                <input type="hidden" name="Monthly_Rent" id="hiddenMonthlyRent" value="0">
                 <input type="hidden" name="Final_Quote_Total" id="hiddenFinalTotal" value="0">
 
                 <!-- STEP 1: Core Package Selection -->
@@ -1534,56 +1538,78 @@
                             <h4>Elite OS</h4><span>₹44,999</span>
                         </div>
                     </div>
-
-                    <!-- Module Selection (Only visible if Elite is chosen) -->
-                    <div id="module-selection-step" style="display:none;">
-                        <h4 style="text-align:center; margin-bottom:25px; color:var(--gold);">Configure Advanced Logic Modules</h4>
-                        <div class="module-grid">
-                            <div class="module-item" onclick="toggleModule('Scrollytelling', 18000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Apple-Style Scrollytelling <span>+₹18,000</span></h5><p>Interactive video engine for product quality visualization.</p><p class="module-benefit">Benefit: Luxury Brand Appeal</p></div></div>
-                            <div class="module-item" onclick="toggleModule('HeavyRain', 12000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Global Crisis "Heavy Rain" Toggle <span>+₹12,000</span></h5><p>One-click logic for monsoon/emergency logistics warnings.</p><p class="module-benefit">Benefit: Managed Customer Expectations</p></div></div>
-                            <div class="module-item" onclick="toggleModule('WhatsAppCapture', 15000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Lead Logic <span>+₹15,000</span></h5><p>Mandatory verified WhatsApp logins for your database.</p><p class="module-benefit">Benefit: High-Conversion Marketing Asset</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ShopSchedule', 8000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Smart Shop Scheduling <span>+₹8,000</span></h5><p>Automated Open/Closed timings with manual override.</p><p class="module-benefit">Benefit: Zero Manual Monitoring</p></div></div>
-                            <div class="module-item" onclick="toggleModule('SearchAlias', 10000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Search Alias <span>+₹10,000</span></h5><p>Smart mapping of synonyms to prevent zero-result sales loss.</p><p class="module-benefit">Benefit: Increases Conversion by 25%</p></div></div>
-                            <div class="module-item" onclick="toggleModule('InventorySync', 9000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Real-Time Inventory Sync <span>+₹9,000</span></h5><p>Live zero-refresh stock logic for out-of-stock items.</p><p class="module-benefit">Benefit: Prevents Dispute Orders</p></div></div>
-                            <div class="module-item" onclick="toggleModule('NetworkShield', 5000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Network Status Shield <span>+₹5,000</span></h5><p>Monitors connectivity during checkout to prevent failures.</p><p class="module-benefit">Benefit: Prevents Transaction Loss</p></div></div>
-                            <div class="module-item" onclick="toggleModule('DeliveryPanel', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Boy Panel <span>+₹12,999</span></h5><p>Exclusive mobile portal for riders to manage orders.</p><p class="module-benefit">Benefit: Organized Logistics</p></div></div>
-                            <div class="module-item" onclick="toggleModule('LiveTracking', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Live Delivery Tracking <span>+₹19,999</span></h5><p>Real-time Google Maps tracking for customers.</p><p class="module-benefit">Benefit: Enhances Customer Trust</p></div></div>
-                            <div class="module-item" onclick="toggleModule('POSBilling', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>POS Billing System <span>+₹14,999</span></h5><p>Advanced point-of-sale logic for counter orders.</p><p class="module-benefit">Benefit: Synchronized Offline/Online Sales</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ThermalPrint', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Thermal Printer Integration <span>+₹7,999</span></h5><p>One-click bill printing logic for kitchen orders.</p><p class="module-benefit">Benefit: Faster Order Fulfillment</p></div></div>
-                            <div class="module-item" onclick="toggleModule('WhatsAppNotify', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Order Notifications <span>+₹5,999</span></h5><p>Automated order status alerts directly on WhatsApp.</p><p class="module-benefit">Benefit: Instant Customer Engagement</p></div></div>
-                            <div class="module-item" onclick="toggleModule('SMSNotify', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>SMS Notifications <span>+₹7,999</span></h5><p>Priority transactional SMS for OTP and Order IDs.</p><p class="module-benefit">Benefit: High Reachability</p></div></div>
-                            <div class="module-item" onclick="toggleModule('EmailNotify', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Email Notifications <span>+₹4,999</span></h5><p>Branded professional invoices sent via Email.</p><p class="module-benefit">Benefit: Professional Post-Sale Experience</p></div></div>
-                            <div class="module-item" onclick="toggleModule('AdvAnalytics', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Analytics Dashboard <span>+₹14,999</span></h5><p>Deep insights into user behavior and sales funnels.</p><p class="module-benefit">Benefit: Data-Driven Growth</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ProfitReports', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Sales & Profit Reports <span>+₹9,999</span></h5><p>Automated accounting logic for monthly profit/loss.</p><p class="module-benefit">Benefit: Accurate Financial Oversight</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ExpenseTracker', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Expense Analytics <span>+₹5,999</span></h5><p>Track business expenditures and operational costs.</p><p class="module-benefit">Benefit: Smart Budget Management</p></div></div>
-                            <div class="module-item" onclick="toggleModule('LoyaltyRewards', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Loyalty & Rewards Program <span>+₹12,999</span></h5><p>Reward points engine to keep customers returning.</p><p class="module-benefit">Benefit: Increased Retention Rate</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ReferralSystem', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Referral System <span>+₹14,999</span></h5><p>Incentivize customers to share and bring new users.</p><p class="module-benefit">Benefit: Organic Customer Acquisition</p></div></div>
-                            <div class="module-item" onclick="toggleModule('PromoCodes', 8999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Coupons & Promo Codes <span>+₹8,999</span></h5><p>Flexible discounting engine for marketing campaigns.</p><p class="module-benefit">Benefit: Boosts Sales Performance</p></div></div>
-                            <div class="module-item" onclick="toggleModule('Wishlist', 3999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Wishlist <span>+₹3,999</span></h5><p>Allows users to save products for future purchase.</p><p class="module-benefit">Benefit: Reduces Cart Abandonment</p></div></div>
-                            <div class="module-item" onclick="toggleModule('MultiLanguage', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-language Support <span>+₹12,999</span></h5><p>Advanced switcher for Marathi, Hindi, and English.</p><p class="module-benefit">Benefit: Targets Local Market Verticals</p></div></div>
-                            <div class="module-item" onclick="toggleModule('MultiCity', 29999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-city Delivery <span>+₹29,999</span></h5><p>Scalable logistics for operating across multiple cities.</p><p class="module-benefit">Benefit: Business Expansion Ready</p></div></div>
-                            <div class="module-item" onclick="toggleModule('ZoneMapping', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Zone Mapping <span>+₹12,999</span></h5><p>Define delivery areas with custom polygon mapping.</p><p class="module-benefit">Benefit: Precise Operational Boundaries</p></div></div>
-                            <div class="module-item" onclick="toggleModule('DistanceDelivery', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Google Maps Distance Delivery <span>+₹19,999</span></h5><p>Charges dynamically based on KM distance from shop.</p><p class="module-benefit">Benefit: Fair Logistics Pricing</p></div></div>
-                            <div class="module-item" onclick="toggleModule('InventoryAlerts', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Inventory Alerts <span>+₹4,999</span></h5><p>Low-stock warnings sent to admin dashboard.</p><p class="module-benefit">Benefit: Prevents Stockouts</p></div></div>
-                            <div class="module-item" onclick="toggleModule('CloudinaryOpt', 6999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Cloudinary Optimization <span>+₹6,999</span></h5><p>Lightning-fast image delivery via premium CDN.</p><p class="module-benefit">Benefit: 50% Faster Website Loading</p></div></div>
-                            <div class="module-item" onclick="toggleModule('RecipeSection', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Recipe Section <span>+₹5,999</span></h5><p>Educational content to drive user engagement.</p><p class="module-benefit">Benefit: Increases Organic SEO</p></div></div>
-                            <div class="module-item" onclick="toggleModule('HealthBenefits', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Health Benefits Section <span>+₹4,999</span></h5><p>Display nutritional data for your products.</p><p class="module-benefit">Benefit: High-Trust Sales Experience</p></div></div>
-                            <div class="module-item" onclick="toggleModule('PushNotify', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Push Notifications <span>+₹9,999</span></h5><p>Browser/Mobile pop-up alerts for offers.</p><p class="module-benefit">Benefit: Direct Retargeting Channel</p></div></div>
-                        </div>
-                    </div>
-
-                    <div class="price-summary-bar">
-                        <div class="total-label">Estimated Project Value:</div>
-                        <div class="total-amount">₹<span id="display-total">0</span></div>
-                    </div>
-
                     <div class="form-actions" style="justify-content: flex-end;">
-                        <button type="button" class="btn btn-primary" id="btn-to-step-2" onclick="nextStep(1)">Configure Details <i class="fas fa-arrow-right"></i></button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(1)">Choose Features <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
 
-                <!-- STEP 2: Client Details -->
+                <!-- STEP 2: Module Selection -->
                 <div class="form-step" id="step-2">
+                    <h4 style="text-align:center; margin-bottom:25px; color:var(--gold);">Configure Advanced Logic Modules</h4>
+                    <div class="module-grid">
+                        <div class="module-item" onclick="toggleModule('Scrollytelling', 18000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Apple-Style Scrollytelling <span>+₹18,000</span></h5><p>Interactive video engine for product quality visualization.</p><p class="module-benefit">Benefit: Luxury Brand Appeal</p></div></div>
+                        <div class="module-item" onclick="toggleModule('HeavyRain', 12000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Global Crisis "Heavy Rain" Toggle <span>+₹12,000</span></h5><p>One-click logic for monsoon/emergency logistics warnings.</p><p class="module-benefit">Benefit: Managed Customer Expectations</p></div></div>
+                        <div class="module-item" onclick="toggleModule('WhatsAppCapture', 15000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Lead Logic <span>+₹15,000</span></h5><p>Mandatory verified WhatsApp logins for your database.</p><p class="module-benefit">Benefit: High-Conversion Marketing Asset</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ShopSchedule', 8000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Smart Shop Scheduling <span>+₹8,000</span></h5><p>Automated Open/Closed timings with manual override.</p><p class="module-benefit">Benefit: Zero Manual Monitoring</p></div></div>
+                        <div class="module-item" onclick="toggleModule('SearchAlias', 10000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Search Alias <span>+₹10,000</span></h5><p>Smart mapping of synonyms to prevent zero-result sales loss.</p><p class="module-benefit">Benefit: Increases Conversion by 25%</p></div></div>
+                        <div class="module-item" onclick="toggleModule('InventorySync', 9000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Real-Time Inventory Sync <span>+₹9,000</span></h5><p>Live zero-refresh stock logic for out-of-stock items.</p><p class="module-benefit">Benefit: Prevents Dispute Orders</p></div></div>
+                        <div class="module-item" onclick="toggleModule('NetworkShield', 5000, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Network Status Shield <span>+₹5,000</span></h5><p>Monitors connectivity during checkout to prevent failures.</p><p class="module-benefit">Benefit: Prevents Transaction Loss</p></div></div>
+                        <div class="module-item" onclick="toggleModule('DeliveryPanel', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Boy Panel <span>+₹12,999</span></h5><p>Exclusive mobile portal for riders to manage orders.</p><p class="module-benefit">Benefit: Organized Logistics</p></div></div>
+                        <div class="module-item" onclick="toggleModule('LiveTracking', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Live Delivery Tracking <span>+₹19,999</span></h5><p>Real-time Google Maps tracking for customers.</p><p class="module-benefit">Benefit: Enhances Customer Trust</p></div></div>
+                        <div class="module-item" onclick="toggleModule('POSBilling', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>POS Billing System <span>+₹14,999</span></h5><p>Advanced point-of-sale logic for counter orders.</p><p class="module-benefit">Benefit: Synchronized Offline/Online Sales</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ThermalPrint', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Thermal Printer Integration <span>+₹7,999</span></h5><p>One-click bill printing logic for kitchen orders.</p><p class="module-benefit">Benefit: Faster Order Fulfillment</p></div></div>
+                        <div class="module-item" onclick="toggleModule('WhatsAppNotify', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>WhatsApp Order Notifications <span>+₹5,999</span></h5><p>Automated order status alerts directly on WhatsApp.</p><p class="module-benefit">Benefit: Instant Customer Engagement</p></div></div>
+                        <div class="module-item" onclick="toggleModule('SMSNotify', 7999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>SMS Notifications <span>+₹7,999</span></h5><p>Priority transactional SMS for OTP and Order IDs.</p><p class="module-benefit">Benefit: High Reachability</p></div></div>
+                        <div class="module-item" onclick="toggleModule('EmailNotify', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Email Notifications <span>+₹4,999</span></h5><p>Branded professional invoices sent via Email.</p><p class="module-benefit">Benefit: Professional Post-Sale Experience</p></div></div>
+                        <div class="module-item" onclick="toggleModule('AdvAnalytics', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Advanced Analytics Dashboard <span>+₹14,999</span></h5><p>Deep insights into user behavior and sales funnels.</p><p class="module-benefit">Benefit: Data-Driven Growth</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ProfitReports', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Sales & Profit Reports <span>+₹9,999</span></h5><p>Automated accounting logic for monthly profit/loss.</p><p class="module-benefit">Benefit: Accurate Financial Oversight</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ExpenseTracker', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Expense Analytics <span>+₹5,999</span></h5><p>Track business expenditures and operational costs.</p><p class="module-benefit">Benefit: Smart Budget Management</p></div></div>
+                        <div class="module-item" onclick="toggleModule('LoyaltyRewards', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Loyalty & Rewards Program <span>+₹12,999</span></h5><p>Reward points engine to keep customers returning.</p><p class="module-benefit">Benefit: Increased Retention Rate</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ReferralSystem', 14999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Referral System <span>+₹14,999</span></h5><p>Incentivize customers to share and bring new users.</p><p class="module-benefit">Benefit: Organic Customer Acquisition</p></div></div>
+                        <div class="module-item" onclick="toggleModule('PromoCodes', 8999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Coupons & Promo Codes <span>+₹8,999</span></h5><p>Flexible discounting engine for marketing campaigns.</p><p class="module-benefit">Benefit: Boosts Sales Performance</p></div></div>
+                        <div class="module-item" onclick="toggleModule('Wishlist', 3999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Wishlist <span>+₹3,999</span></h5><p>Allows users to save products for future purchase.</p><p class="module-benefit">Benefit: Reduces Cart Abandonment</p></div></div>
+                        <div class="module-item" onclick="toggleModule('MultiLanguage', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-language Support <span>+₹12,999</span></h5><p>Advanced switcher for Marathi, Hindi, and English.</p><p class="module-benefit">Benefit: Targets Local Market Verticals</p></div></div>
+                        <div class="module-item" onclick="toggleModule('MultiCity', 29999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Multi-city Delivery <span>+₹29,999</span></h5><p>Scalable logistics for operating across multiple cities.</p><p class="module-benefit">Benefit: Business Expansion Ready</p></div></div>
+                        <div class="module-item" onclick="toggleModule('ZoneMapping', 12999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Delivery Zone Mapping <span>+₹12,999</span></h5><p>Define delivery areas with custom polygon mapping.</p><p class="module-benefit">Benefit: Precise Operational Boundaries</p></div></div>
+                        <div class="module-item" onclick="toggleModule('DistanceDelivery', 19999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Google Maps Distance Delivery <span>+₹19,999</span></h5><p>Charges dynamically based on KM distance from shop.</p><p class="module-benefit">Benefit: Fair Logistics Pricing</p></div></div>
+                        <div class="module-item" onclick="toggleModule('InventoryAlerts', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Inventory Alerts <span>+₹4,999</span></h5><p>Low-stock warnings sent to admin dashboard.</p><p class="module-benefit">Benefit: Prevents Stockouts</p></div></div>
+                        <div class="module-item" onclick="toggleModule('CloudinaryOpt', 6999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Cloudinary Optimization <span>+₹6,999</span></h5><p>Lightning-fast image delivery via premium CDN.</p><p class="module-benefit">Benefit: 50% Faster Website Loading</p></div></div>
+                        <div class="module-item" onclick="toggleModule('RecipeSection', 5999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Recipe Section <span>+₹5,999</span></h5><p>Educational content to drive user engagement.</p><p class="module-benefit">Benefit: Increases Organic SEO</p></div></div>
+                        <div class="module-item" onclick="toggleModule('HealthBenefits', 4999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Health Benefits Section <span>+₹4,999</span></h5><p>Display nutritional data for your products.</p><p class="module-benefit">Benefit: High-Trust Sales Experience</p></div></div>
+                        <div class="module-item" onclick="toggleModule('PushNotify', 9999, this)"><div class="module-checkbox"><i class="fas fa-check"></i></div><div class="module-info"><h5>Push Notifications <span>+₹9,999</span></h5><p>Browser/Mobile pop-up alerts for offers.</p><p class="module-benefit">Benefit: Direct Retargeting Channel</p></div></div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Packages</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(2)">Ownership Type <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Buy vs Rent -->
+                <div class="form-step" id="step-3">
+                    <h3 style="text-align:center; margin-bottom:30px;">Choose Your Ownership Structure</h3>
+                    <div class="pkg-select-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                        <div class="pkg-option" id="plan-buy" onclick="selectOwnership('Buy', this)">
+                            <h4 style="color:var(--electric-blue);">Full Ownership</h4>
+                            <p style="font-size:0.8rem; color:#aaa; margin:10px 0;">Pay once, own the asset forever.</p>
+                            <div style="font-size:1.8rem; font-weight:800;">₹<span id="buy-total">0</span></div>
+                            <span style="font-size:0.7rem; display:block; margin-top:5px;">One-time investment</span>
+                        </div>
+                        <div class="pkg-option" id="plan-rent" onclick="selectOwnership('Rent', this)">
+                            <h4 style="color:var(--gold);">Smart Rent (SaaS)</h4>
+                            <p style="font-size:0.8rem; color:#aaa; margin:10px 0;">Low entry cost with monthly maintenance.</p>
+                            <div style="font-size:1.5rem; font-weight:800;">Setup: ₹<span id="rent-setup">0</span></div>
+                            <div style="color:var(--gold); font-weight:700;">+ ₹<span id="rent-monthly">0</span>/mo</div>
+                            <span style="font-size:0.7rem; display:block; margin-top:5px;">Includes Servers & Priority Support</span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Edit Features</button>
+                        <button type="button" class="btn btn-primary" onclick="nextStep(3)">Configure Details <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: Client Details -->
+                <div class="form-step" id="step-4">
                     <h3 style="margin-bottom: 30px; text-align:center;">Finalize Your Request</h3>
                     <div class="form-group"><label>Your Full Name *</label><input type="text" name="Name" required></div>
                     <div class="form-group"><label>Business Name *</label><input type="text" name="Business" required></div>
@@ -1595,7 +1621,7 @@
                     </div>
                     
                     <div class="form-actions">
-                        <button type="button" class="btn btn-outline" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Edit Quote</button>
+                        <button type="button" class="btn btn-outline" onclick="prevStep(4)"><i class="fas fa-arrow-left"></i> Edit Pricing</button>
                         <button type="submit" class="btn btn-primary" id="submitBtn">Submit for Consultation <i class="fas fa-paper-plane"></i></button>
                     </div>
                 </div>
@@ -1894,12 +1920,26 @@ Send Message
             selectedModules.forEach(mod => { modulesSum += modulePrices[mod]; });
             currentTotal = basePackagePrice + modulesSum;
             
-            // Update UI
-            document.getElementById('display-total').innerText = currentTotal.toLocaleString('en-IN');
+            // Ownership Calculations
+            let setupFee = Math.round(currentTotal * 0.20);
+            let monthlyRent = Math.round(setupFee * 0.25);
+
+            // Update Ownership Step UI
+            document.getElementById('buy-total').innerText = currentTotal.toLocaleString('en-IN');
+            document.getElementById('rent-setup').innerText = setupFee.toLocaleString('en-IN');
+            document.getElementById('rent-monthly').innerText = monthlyRent.toLocaleString('en-IN');
             
-            // Update Hidden Inputs for Web3Forms
+            // Update Hidden Inputs
             document.getElementById('hiddenFinalTotal').value = currentTotal;
+            document.getElementById('hiddenSetupFee').value = setupFee;
+            document.getElementById('hiddenMonthlyRent').value = monthlyRent;
             document.getElementById('hiddenSelectedModules').value = selectedModules.size > 0 ? Array.from(selectedModules).join(', ') : "None";
+        }
+
+        function selectOwnership(type, element) {
+            document.getElementById('hiddenOwnershipPlan').value = type;
+            document.querySelectorAll('#step-3 .pkg-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
         }
 
         function startForm(pkg) {
@@ -1912,6 +1952,9 @@ Send Message
             const pkg = document.getElementById('hiddenFormPackage').value;
             if(!pkg) { alert("Please select a base package."); return; }
             
+            // Fix Jump issue: scroll to top of form container
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
             document.getElementById('step-' + current).classList.remove('active');
             document.getElementById('step-' + (current + 1)).classList.add('active');
             
@@ -1921,6 +1964,7 @@ Send Message
         }
 
         function prevStep(current) {
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
             document.getElementById('step-' + current).classList.remove('active');
             document.getElementById('step-' + (current - 1)).classList.add('active');
             
