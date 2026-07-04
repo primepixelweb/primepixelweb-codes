@@ -13,6 +13,65 @@
             --text-muted: #9baac2;
             --glass-border: 1px solid rgba(255, 255, 255, 0.08);
         }
+        /* PrimePixel Particle Cursor - Professional Final Version */
+        #pixel-cursor {
+            width: 10px;
+            height: 10px;
+            background-color: var(--electric-blue);
+            border-radius: 1px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px var(--electric-blue);
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform;
+        }
+        .pixel-spark {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background-color: var(--electric-blue);
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 0; /* Pure square for pixel feel */
+            box-shadow: 0 0 8px var(--electric-blue);
+        }
+        /* Mobile fallback: Hide custom cursor on small touch devices */
+        @media (max-width: 1024px) {
+            #pixel-cursor, .pixel-spark { display: none !important; }
+            body { cursor: auto !important; }
+        }
+
+        /* PrimePixel Particle Cursor - Professional Final Version */
+        #pixel-cursor {
+            width: 10px;
+            height: 10px;
+            background-color: var(--electric-blue);
+            border-radius: 1px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px var(--electric-blue);
+            transition: transform 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            will-change: transform;
+        }
+        .pixel-spark {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background-color: var(--electric-blue);
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 0; 
+            box-shadow: 0 0 8px var(--electric-blue);
+        }
+        @media (max-width: 1024px) {
+            #pixel-cursor, .pixel-spark { display: none !important; }
+            body { cursor: auto !important; }
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-black);
@@ -52,7 +111,11 @@
         }
     </style>
 </head>
-<body>
+<body style="cursor: none;">
+    <!-- Finalized PrimePixel Particle Trail -->
+    <div id="pixel-cursor"></div>
+    <!-- Finalized PrimePixel Particle Trail -->
+    <div id="pixel-cursor"></div>
     <div class="container">
         <div class="header">
             <a href="index.html" class="logo">Prime<span>Pixel</span> Web</a>
@@ -85,5 +148,63 @@
 
         <a href="index.html" class="back-btn">← Back to Home</a>
     </div>
+<script>
+        // --- Finalized PrimePixel Particle Trail Logic ---
+        const pixelMain = document.getElementById('pixel-cursor');
+        let lastSparkTime = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            pixelMain.style.left = x + 'px';
+            pixelMain.style.top = y + 'px';
+            
+            const now = Date.now();
+            if (now - lastSparkTime > 25) {
+                createPixelSpark(x, y);
+                lastSparkTime = now;
+            }
+        });
+
+        function createPixelSpark(x, y) {
+            const spark = document.createElement('div');
+            spark.className = 'pixel-spark';
+            document.body.appendChild(spark);
+
+            const driftX = (Math.random() - 0.5) * 60;
+            const driftY = (Math.random() - 0.5) * 60;
+
+            spark.style.left = x + 'px';
+            spark.style.top = y + 'px';
+
+            const animation = spark.animate([
+                { transform: 'translate(0, 0) scale(1.2)', opacity: 1 },
+                { transform: `translate(${driftX}px, ${driftY}px) scale(0) rotate(90deg)`, opacity: 0 }
+            ], {
+                duration: 1000 + Math.random() * 500,
+                easing: 'ease-out'
+            });
+
+            animation.onfinish = () => spark.remove();
+        }
+
+        // Hover Interaction logic for legal pages
+        const hoverTargets = document.querySelectorAll('a, button, .btn');
+        
+        hoverTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                pixelMain.style.transform = 'translate(-50%, -50%) scale(2.5) rotate(45deg)';
+                pixelMain.style.backgroundColor = '#fff';
+            });
+            target.addEventListener('mouseleave', () => {
+                pixelMain.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+                pixelMain.style.backgroundColor = 'var(--electric-blue)';
+            });
+        });
+
+        document.addEventListener('mouseleave', () => pixelMain.style.opacity = '0');
+        document.addEventListener('mouseenter', () => pixelMain.style.opacity = '1');
+    </script>
 </body>
 </html>
