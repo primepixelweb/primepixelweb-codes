@@ -1953,17 +1953,11 @@ Send Message
         function selectBasePackage(pkg, price, element) {
             basePackagePrice = price;
             document.getElementById('hiddenFormPackage').value = pkg;
-            
-            // UI Toggle
-            document.querySelectorAll('.pkg-option').forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('#step-1 .pkg-option').forEach(el => el.classList.remove('selected'));
             element.classList.add('selected');
 
-            // Show/Hide Module Selection
-            const moduleStep = document.getElementById('module-selection-step');
-            if(pkg === 'Elite') {
-                moduleStep.style.display = 'block';
-            } else {
-                moduleStep.style.display = 'none';
+            // Reset modules if switching away from Elite
+            if(pkg !== 'Elite') {
                 selectedModules.clear();
                 document.querySelectorAll('.module-item').forEach(el => el.classList.remove('selected'));
             }
@@ -1984,10 +1978,12 @@ Send Message
         function updateProjectTotal() {
             let modulesSum = 0;
             selectedModules.forEach(mod => { modulesSum += modulePrices[mod]; });
+            
+            // Minimum is basePackagePrice (e.g., 44,999 for Elite)
             currentTotal = basePackagePrice + modulesSum;
             
-            // Ownership Calculations
-            let setupFee = Math.round(currentTotal * 0.20);
+            // Ownership Calculations: Setup = 10%, Rent = 25% of Setup
+            let setupFee = Math.round(currentTotal * 0.10); 
             let monthlyRent = Math.round(setupFee * 0.25);
 
             // Update Ownership Step UI
@@ -2018,26 +2014,52 @@ Send Message
             const pkg = document.getElementById('hiddenFormPackage').value;
             if(!pkg) { alert("Please select a base package."); return; }
             
-            // Fix Jump issue: scroll to top of form container
-            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            let next = current + 1;
 
+            // Condition: Skip Step 2 if package is NOT Elite
+            if (current === 1 && pkg !== 'Elite') {
+                next = 3; // Skip Modules, go to Ownership
+            }
+
+            document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
             document.getElementById('step-' + current).classList.remove('active');
-            document.getElementById('step-' + (current + 1)).classList.add('active');
+            document.getElementById('step-' + next).classList.add('active');
             
+            // Update dots
             document.getElementById('dot-' + current).classList.replace('active', 'completed');
             document.getElementById('dot-' + current).innerHTML = '<i class="fas fa-check"></i>';
-            document.getElementById('dot-' + (current + 1)).classList.add('active');
+            document.getElementById('dot-' + next).classList.add('active');
+            
+            // If we skipped a dot, mark it completed too
+            if (next > current + 1) {
+                document.getElementById('dot-' + (current + 1)).classList.add('completed');
+                document.getElementById('dot-' + (current + 1)).innerHTML = '<i class="fas fa-check"></i>';
+            }
         }
 
         function prevStep(current) {
+            const pkg = document.getElementById('hiddenFormPackage').value;
+            let prev = current - 1;
+
+            // Condition: Skip back to Step 1 from Step 3 if NOT Elite
+            if (current === 3 && pkg !== 'Elite') {
+                prev = 1;
+            }
+
             document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
             document.getElementById('step-' + current).classList.remove('active');
-            document.getElementById('step-' + (current - 1)).classList.add('active');
+            document.getElementById('step-' + prev).classList.add('active');
             
             document.getElementById('dot-' + current).classList.remove('active');
-            document.getElementById('dot-' + (current - 1)).classList.remove('completed');
-            document.getElementById('dot-' + (current - 1)).classList.add('active');
-            document.getElementById('dot-' + (current - 1)).innerHTML = (current - 1);
+            document.getElementById('dot-' + prev).classList.remove('completed');
+            document.getElementById('dot-' + prev).classList.add('active');
+            document.getElementById('dot-' + prev).innerHTML = prev;
+            
+            // Clean up skipped dots
+            if (current - prev > 1) {
+                document.getElementById('dot-' + (prev + 1)).classList.remove('completed', 'active');
+                document.getElementById('dot-' + (prev + 1)).innerHTML = (prev + 1);
+            }
         }
 
         function setupForm(formId, btnId, successCallback){
